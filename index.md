@@ -10,6 +10,8 @@ SubHeading
   This is a hyperlink to [Google](http://google.com).
 
   This is a hyperlink to [Item 1](item1.md).
-  
+
+  This is a hyperlink to [Item 2](subdir/item2.md).
+
   Images are like hyperlinks, but with an exclamation mark in front of them:
   ![](http://placekitten.com/g/250/250)
