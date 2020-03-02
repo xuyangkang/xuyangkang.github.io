@@ -1,11 +1,14 @@
-# Xuyang's wiki
+Xuyang's wiki
+======
 
-## Xuyang?
+Xuyang?
+------
   [Resume](resume.md)
   [Blog](https://xuyang.me)
   [Wiki](https://wiki.xuyang.me)
 
-## Preface
+Preface
+------
 This wiki is:
 
 - an 'index' of my knowlege. 
@@ -15,12 +18,14 @@ This wiki is not:
 - an encyclopedia
 - documents
 
-## Contents
+Contents
+------
 
 
 
 
-## Tests below
+Tests below
+------
 Welcome to my wiki! This site is for a detailed introduction about my work.
 
   * list item 1
