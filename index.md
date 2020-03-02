@@ -1,8 +1,27 @@
-Heading
-=======
+# Xuyang's wiki
 
-SubHeading
-----------
+## Xuyang?
+  [Resume](resume.md)
+  [Blog](https://xuyang.me)
+  [Wiki](https://wiki.xuyang.me)
+
+## Preface
+This wiki is:
+
+- an 'index' of my knowlege. 
+  
+This wiki is not:
+
+- an encyclopedia
+- documents
+
+## Contents
+
+
+
+
+## Tests below
+Welcome to my wiki! This site is for a detailed introduction about my work.
 
   * list item 1
   * list item 2
