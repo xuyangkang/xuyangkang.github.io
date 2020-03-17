@@ -3,20 +3,21 @@ Xuyang's wiki
 
 Xuyang?
 ------
-  [Resume](resume.md)
-  [Blog](https://xuyang.me)
-  [Wiki](https://wiki.xuyang.me)
+  - Read this [wiki](https://wiki.xuyang.me)
+  - Although one purposal of this wiki is to create a much detailed resume, an [one page esume](resume.md) is here.
+  - Follow Wechat and Medium to get my latest posts. Then all my posts will be archived in my [personal website](https://xuyang.me)
 
 Preface
 ------
 This wiki is:
 
-- an 'index' of my knowlege. 
+- An "index" of my knowlege
+- A much detailed resume of mine
   
 This wiki is not:
 
-- an encyclopedia
-- documents
+- An encyclopedia
+- Detailed documents
 
 Contents
 ------
