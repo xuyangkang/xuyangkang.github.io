@@ -11,9 +11,9 @@ Experience
 - Design and build a company search engine, responsibility includes
   - Productionlize machine learning model
   - Design system architecture
-  - Design user management system 
+  - Design user management and authentication system 
   - Plan service capacity
-  - Security check
+  - Security review
 
 **Full Stack Software Engineer, Indeed** (2017-2019)
 
