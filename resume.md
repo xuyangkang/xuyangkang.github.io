@@ -8,20 +8,27 @@ Experience
 ---------
 **Tech Lead, ExaWizards** (2019-present)
 
-- Designed and built a company search engine
+- Design and build a company search engine, responsibility includes
+  - Productionlize machine learning model
+  - Design system architecture
+  - Design user management system 
+  - Plan service capacity
+  - Security check
 
 **Full Stack Software Engineer, Indeed** (2017-2019)
 
-- Develop and Maintain services that supports Indeed's private cloud, including http access log, metrics, monitoring and alerting.
+- Develop and maintain services that supports Indeed's private cloud
+  - Includes log collection, metrics, monitoring and alerting
+  - Regular on-call
 
 **Software Engineer, Google** (2013-2017)
 
-- Backend Engineer of Google Maps StreetViews
-- Data Engineer for Google Play Music(Now YouTube Music)'s payment and reporting
+- Backend engineer of Google Maps StreetViews
+- Data engineer for Google Play Music(Now YouTube Music)'s payment and reporting
+- Regular on-call
 - Contribute to Open Source
   - Golang
   - Android Studio
-
 
 
 Education
