@@ -65,5 +65,4 @@ Skills
 
 Link to this page
 ------
-![](qr-code-resume.png)
 
