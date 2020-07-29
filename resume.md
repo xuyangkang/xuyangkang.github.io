@@ -3,6 +3,7 @@ Xuyang Kang
 
 #### A full-stack software engineer who wants to start a research career
 ###### [ [xuyangkang@gmail.com](mailto:xuyangkang@gmail.com) ]
+![](qr-code-resume.png)
 
 Experience
 ---------
