@@ -1,8 +1,8 @@
 Xuyang Kang
 ======
 
-#### A full-stack software engineer who want to become a research engineer
-###### [ [xuyangkang.github.io](xuyangkang.github.io) ] . [ xuyangkang@gmail.com ]
+#### A full-stack software engineer who wants to start a research career
+###### [ xuyangkang@gmail.com ]
 
 Experience
 ---------
