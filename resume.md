@@ -3,7 +3,6 @@ Xuyang Kang
 
 #### A full-stack software engineer who wants to start a research career
 ###### [ [xuyangkang@gmail.com](mailto:xuyangkang@gmail.com) ]
-![](qr-code-resume.png)
 
 Experience
 ---------
@@ -63,3 +62,8 @@ Skills
 - Chinese: Native
 - English: Business, IELTS 6.5
 - Japanese: Basic
+
+Link to this page
+------
+![](qr-code-resume.png)
+
