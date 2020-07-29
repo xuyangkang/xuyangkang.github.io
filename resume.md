@@ -44,9 +44,9 @@ Skills
 ------
 **Programming:** Python 3, Java, C++, Go, JavaScript/TypeScript, HTML/CSS
 
-**Frameworks:** Django, React, gRPC, NodeJS, Hadoop, Apache Beam, Spring
+**Frameworks:** Django, React, gRPC, Node.js, Hadoop, Apache Beam, Spring
 
-**Infrastructure:** AWS, Jenkins, GitLab, PagerDuty, DataDog, Prometheus, PostgreSQL
+**Infrastructure:** Docker, PostgreSQL, AWS, Jenkins, GitLab, PagerDuty, DataDog, Prometheus
 
 **Tools:** Shell, Git, VSCode, IntelliJ
 
