@@ -8,7 +8,7 @@ Experience
 ---------
 **Tech Lead, ExaWizards** (2019-present)
 
-- Designed and built a company search engine service
+- Designed and built a company search engine
 
 **Full Stack Software Engineer, Indeed** (2017-2019)
 
