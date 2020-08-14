@@ -1,7 +1,6 @@
 Xuyang Kang
 ======
 
-#### A full-stack software engineer who wants to start a research career
 E-mail & skype: [xuyangkang@gmail.com](mailto:xuyangkang@gmail.com)
 
 Experience
