@@ -7,25 +7,26 @@ Experience
 ---------
 **Tech Lead, ExaWizards** (2019-present)
 
-- Design and build a company search engine, responsibility includes
-  - Productionlize machine learning model
-  - Design system architecture
-  - Design user management and authentication system 
-  - Plan service capacity
-  - Security review
+- Design and build [AnyInc](https://info.anyinc.ai/), a company search engine. My responsibility includes
+  - Productionlized machine learning model
+  - Designed system architecture
+  - Designed user management and authentication system
+  - Implemented the first version
+  - Lead the engineer team
+  - Established agile workflow in the team
 
 **Full Stack Software Engineer, Indeed** (2017-2019)
 
-- Develop and maintain services that supports Indeed's private cloud
+- Developping services that supports Indeed's private cloud
   - Includes log collection, metrics, monitoring and alerting
-  - Regular on-call
+  - On-call
 
 **Software Engineer, Google** (2013-2017)
 
-- Backend engineer of Google Maps StreetViews
-- Data engineer for Google Play Music(Now YouTube Music)'s payment and reporting
-- Regular on-call
-- Contribute to Open Source
+- Backend engineering of Google Maps StreetViews
+- Data engineering for Google Play Music(Now YouTube Music)'s payment and reporting
+- On-call
+- Contributed to internal infrastructure and open source
   - Golang
   - Android Studio
 
@@ -48,7 +49,7 @@ Education
 
 Skills
 ------
-**Programming:** Python 3, Java, C++, Go, JavaScript/TypeScript, HTML/CSS
+**Programming languages:** Python 3, Java, C++, Go, JavaScript/TypeScript, HTML/CSS
 
 **Frameworks:** Django, React, gRPC, Node.js, Hadoop, Apache Beam, Spring
 
@@ -59,7 +60,7 @@ Skills
 **Language:**
 
 - Chinese: Native
-- English: Business, IELTS 6.5
+- English: Business
 - Japanese: Basic
 
 Link to this page
