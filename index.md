@@ -3,20 +3,19 @@ Xuyang's wiki
 
 Xuyang?
 ------
-  - Read this [wiki](https://wiki.xuyang.me)
-  - Although one purposal of this wiki is to create a much detailed resume, an [one page resume](resume.md) is here.
-
-Preface
-------
 This wiki is:
 
-- An "index" of my knowlege
-- A much detailed resume of mine
-  
+- My detailed resume
+- "Index" of my knowlege and experience
+
+
 This wiki is not:
 
-- An encyclopedia
-- Detailed documents
+- An encyclopedia. Although I have in-width knowledge, I will not try to cover everything about computer science and engineering.
+- Copy of Documentations. For full documentation of tools/frameworks mentioned, please visit their offical site.
+
+An [one page resume](resume.md) could be found here
+
 
 Contents
 ------
