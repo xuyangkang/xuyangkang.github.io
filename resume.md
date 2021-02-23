@@ -9,9 +9,9 @@ Experience
 
 - Design and build [AnyInc](https://info.anyinc.ai/), a company search engine. My responsibility includes
   - Productionlized machine learning model
-  - Designed system architecture
+  - Designed the system architecture
   - Designed user management and authentication system
-  - Implemented the first version
+  - Built and launched the first version
   - Lead the engineer team
   - Established agile workflow in the team
 
@@ -24,7 +24,7 @@ Experience
 **Software Engineer, Google** (2013-2017)
 
 - Backend engineering of Google Maps StreetViews
-- Data engineering for Google Play Music(Now YouTube Music)'s payment and reporting
+- Data engineering for Google Play Music's payment and reporting
 - On-call
 - Contributed to internal infrastructure and open source
   - Golang
@@ -37,7 +37,7 @@ Education
 
 - Part-time distance learning
 - Coursework in algorithm and data structure, big data analysis, computer architecture and operation system, network, etc.
-- Current progress: about 1/3
+- Current progress: about 2/3
 
 **B.S. in Computer Science, Nankai University** (2009-2013)
 
@@ -60,8 +60,8 @@ Skills
 **Language:**
 
 - Chinese: Native
-- English: Business
-- Japanese: Basic
+- English: Business (IELTS 6.5)
+- Japanese: Intermidiate (JLPT N2)
 
 Link to this page
 ------
