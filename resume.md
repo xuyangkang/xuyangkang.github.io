@@ -5,7 +5,7 @@ E-mail & skype: [xuyangkang@gmail.com](mailto:xuyangkang@gmail.com)
 
 Experience
 ---------
-**Tech Lead, ExaWizards** (2019-present)
+**Software Engineer, ExaWizards** (2019-present)
 
 - Design and build [AnyInc](https://info.anyinc.ai/), a company search engine. My responsibility includes
   - Productionlized machine learning model
