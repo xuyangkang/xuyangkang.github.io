@@ -5,19 +5,26 @@ E-mail & skype: [xuyangkang@gmail.com](mailto:xuyangkang@gmail.com)
 
 Experience
 ---------
-**Software Engineer, ExaWizards** (2019-present)
+**Software Engineer/Tech Lead, ExaWizards** (2019-present)
 
-- Design and build [AnyInc](https://info.anyinc.ai/), a company search engine. My responsibility includes
-  - Productionlized machine learning model
-  - Designed the system architecture
-  - Designed user management and authentication system
+- Design and build [AnyInc](https://info.anyinc.ai/), a company search engine based on vector similarity search.
+
+As a SWE, I:
+  - Designed system architecture
+  - Converted the machine learning model to a production ready service
   - Built and launched the first version
-  - Lead the engineer team
-  - Established agile workflow in the team
+  - Designed and implemented user management and authentication system
+  - Working on performance and scalability
+
+As a TL, I:
+  - Selected the tech stack
+  - Established agile workflow
+  - Collaborate with DevOps and setup release, test, monitoring & alerting
+  - Leaded the engineer team and mentored junior SWEs
 
 **Full Stack Software Engineer, Indeed** (2017-2019)
 
-- Developping services that supports Indeed's private cloud
+- Developped services that supports Indeed's private cloud
   - Includes log collection, metrics, monitoring and alerting
   - On-call
 
@@ -25,7 +32,7 @@ Experience
 
 - Backend engineering of Google Maps StreetViews
 - Data engineering for Google Play Music's payment and reporting
-- On-call
+- Release Engineering & On-call
 - Contributed to internal infrastructure and open source
   - Golang
   - Android Studio
@@ -37,7 +44,7 @@ Education
 
 - Part-time distance learning
 - Coursework in algorithm and data structure, big data analysis, computer architecture and operation system, network, etc.
-- Current progress: about 2/3
+- Current progress: passed 8/10 courses
 
 **B.S. in Computer Science, Nankai University** (2009-2013)
 
@@ -49,7 +56,7 @@ Education
 
 Skills
 ------
-**Programming languages:** Python 3, Java, C++, Go, JavaScript/TypeScript, HTML/CSS
+**Programming languages:** Python3, Java, C++, Go, JavaScript/TypeScript, HTML/CSS
 
 **Frameworks:** Django, React, gRPC, Node.js, Hadoop, Apache Beam, Spring
 
