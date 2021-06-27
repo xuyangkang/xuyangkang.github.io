@@ -10,6 +10,7 @@ Experience
 - Design and build [AnyInc](https://info.anyinc.ai/), a company search engine based on vector similarity search.
 
 As a SWE, I:
+
   - Designed system architecture
   - Converted the machine learning model to a production ready service
   - Built and launched the first version
@@ -17,6 +18,7 @@ As a SWE, I:
   - Working on performance and scalability
 
 As a TL, I:
+
   - Selected the tech stack
   - Established agile workflow
   - Collaborate with DevOps and setup release, test, monitoring & alerting
@@ -44,7 +46,7 @@ Education
 
 - Part-time distance learning
 - Coursework in algorithm and data structure, big data analysis, computer architecture and operation system, network, etc.
-- Current progress: passed 8/10 courses
+- Current progress: passed 8/10 courses, expected graduation: Feb 2022
 
 **B.S. in Computer Science, Nankai University** (2009-2013)
 
