@@ -69,7 +69,7 @@ Skills
 **Language:**
 
 - Chinese: Native
-- English: Business (IELTS 6.5)
+- English: Business (IELTS 6.5, TOEIC 865)
 - Japanese: Intermidiate (JLPT N2)
 
 Link to this page
