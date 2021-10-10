@@ -49,7 +49,7 @@ Education
 
 - Part-time distance learning
 - Coursework in algorithm and data structure, big data analysis, computer architecture and operation system, network, etc.
-- Current progress: passed 8/10 courses, expected graduation: Feb 2022
+- Current progress: passed 9/10 courses, expected graduation: June 2022
 
 **B.S. in Computer Science, Nankai University** (2009-2013)
 
