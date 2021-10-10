@@ -5,7 +5,10 @@ E-mail & skype: [xuyangkang@gmail.com](mailto:xuyangkang@gmail.com)
 
 Experience
 ---------
-**Software Engineer/Tech Lead, ExaWizards** (2019-present)
+**Software Engineer, DoorDash** (2021-present)
+
+
+**Software Engineer/Tech Lead, ExaWizards** (2019-2021)
 
 - Design and build [AnyInc](https://info.anyinc.ai/), a company search engine based on vector similarity search.
 
