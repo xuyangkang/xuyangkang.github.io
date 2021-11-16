@@ -5,10 +5,11 @@ E-mail & skype: [xuyangkang@gmail.com](mailto:xuyangkang@gmail.com)
 
 Experience
 ---------
-**Software Engineer, DoorDash** (2021-present)
+**Software Engineer, DoorDash** (2021/9-present)
+- Improve Japan Store Search
 
 
-**Software Engineer/Tech Lead, ExaWizards** (2019-2021)
+**Software Engineer/Tech Lead, ExaWizards** (2019/7-2021/9)
 
 - Design and build [AnyInc](https://info.anyinc.ai/), a company search engine based on vector similarity search.
 
@@ -27,13 +28,13 @@ As a TL, I:
   - Collaborate with DevOps and setup release, test, monitoring & alerting
   - Leaded the engineer team and mentored junior SWEs
 
-**Full Stack Software Engineer, Indeed** (2017-2019)
+**Full Stack Software Engineer, Indeed** (2017/10-2019/7)
 
 - Developped services that supports Indeed's private cloud
   - Includes log collection, metrics, monitoring and alerting
   - On-call
 
-**Software Engineer, Google** (2013-2017)
+**Software Engineer, Google** (2013/10-2017/10)
 
 - Backend engineering of Google Maps StreetViews
 - Data engineering for Google Play Music's payment and reporting
