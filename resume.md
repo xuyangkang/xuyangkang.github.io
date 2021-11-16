@@ -6,12 +6,13 @@ E-mail & skype: [xuyangkang@gmail.com](mailto:xuyangkang@gmail.com)
 Experience
 ---------
 **Software Engineer, DoorDash** (2021/9-present)
+
 - Improve Japan Store Search
 
 
 **Software Engineer/Tech Lead, ExaWizards** (2019/7-2021/9)
 
-- Design and build [AnyInc](https://info.anyinc.ai/), a company search engine based on vector similarity search.
+- Designed and built [AnyInc](https://info.anyinc.ai/), a company search engine based on vector similarity search.
 
 As a SWE, I:
 
