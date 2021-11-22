@@ -5,7 +5,7 @@ E-mail & skype: [xuyangkang@gmail.com](mailto:xuyangkang@gmail.com)
 
 Experience
 ---------
-**Software Engineer, DoorDash** (2021/9-present)
+**Software Engineer, DoorDash** (2021/10-present)
 
 - Improve Japan Store Search
 
