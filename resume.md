@@ -32,7 +32,7 @@ Experience
 - I built photo upload service for Google Maps
 - I processed data for Google Play Music's payment and reporting
 - I contributed to internal infrastructure and open source, including Golang and Android Studio
-- I learnt how SWE work in scale in an alomost ideal world
+- I learnt how SWE work in scale in an almost ideal world
 
 
 Education
