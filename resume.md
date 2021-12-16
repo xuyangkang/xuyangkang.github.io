@@ -7,42 +7,32 @@ Experience
 ---------
 **Software Engineer, DoorDash** (2021/10-present)
 
-- Improve Japan Store Search
+- I improved Japan Store Search
+- I'm bringing more features of [DashPass](https://help.doordash.com/consumers/s/article/What-is-DashPass?language=en_US) to Australia
 
 
 **Software Engineer/Tech Lead, ExaWizards** (2019/7-2021/9)
 
-- Designed and built [AnyInc](https://info.anyinc.ai/), a company search engine based on vector similarity search.
-
-As a SWE, I:
-
-  - Designed system architecture
-  - Converted the machine learning model to a production ready service
-  - Built and launched the first version
-  - Designed and implemented user management and authentication system
-  - Working on performance and scalability
-
-As a TL, I:
-
-  - Selected the tech stack
-  - Established agile workflow
-  - Collaborate with DevOps and setup release, test, monitoring & alerting
-  - Leaded the engineer team and mentored junior SWEs
+- I'm the leader of [exaBase Company Search (Formerly AnyInc)](https://exawizards.com/exabase/companysearch/)
+- I designed system architecture and selected the tech stack
+- I worked with ML engineer to convert the prototype to a production ready service
+- I built and launched the first version
+- I designed and implemented user management and authentication system
+- I improved search performance and scalability by sharding the ES cluster
+- I established agile workflow in the team
+- I worked with DevOps to setup release, test, monitoring & alerting
 
 **Full Stack Software Engineer, Indeed** (2017/10-2019/7)
 
-- Developped services that supports Indeed's private cloud
-  - Includes log collection, metrics, monitoring and alerting
-  - On-call
+- I supported Indeed's private cloud
+- I learnt how things work in scale, with open source infras
 
 **Software Engineer, Google** (2013/10-2017/10)
 
-- Backend engineering of Google Maps StreetViews
-- Data engineering for Google Play Music's payment and reporting
-- Release Engineering & On-call
-- Contributed to internal infrastructure and open source
-  - Golang
-  - Android Studio
+- I built photo upload service for Google Maps
+- I processed data for Google Play Music's payment and reporting
+- I contributed to internal infrastructure and open source, including Golang and Android Studio
+- I learnt how things work in scale
 
 
 Education
