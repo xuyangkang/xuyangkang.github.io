@@ -47,7 +47,7 @@ Education
 
 **MOOCs**
 
-- [Machine Learning (Stanford, Andrew Ng)](https://www.coursera.org/api/legacyCertificates.v1/spark/statementOfAccomplishment/973756~6777681/pdf)
+- [Machine Learning (Stanford, Andrew Ng)](ML.pdf)
 - [Mathematics for Machine Learning: Linear Algebra](https://coursera.org/share/f7b2a5490da199784863314e386667aa)
 - [Introduction to Typography](https://coursera.org/share/7b866f49bc2d8a5714392ed96a91f684)
 - [Fundamentals of Graphic Design](https://coursera.org/share/bd60ef42629374c2630913ae19af00fc)
@@ -55,7 +55,7 @@ Education
 
 Skills
 ------
-**Programming languages:** Python3, Java, C++, Go, JavaScript/TypeScript, HTML/CSS
+**Programming languages:** Kotlin, Python3, Java, C++, Go, JavaScript/TypeScript, HTML/CSS
 
 **Frameworks:** Django, React, gRPC, Node.js, Hadoop, Apache Beam, Spring
 
