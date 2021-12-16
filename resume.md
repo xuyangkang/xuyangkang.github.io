@@ -47,8 +47,10 @@ Education
 
 **MOOCs**
 
-- Machine Learning (Stanford, Andrew Ng)
+- [Machine Learning (Stanford, Andrew Ng)](https://www.coursera.org/api/legacyCertificates.v1/spark/statementOfAccomplishment/973756~6777681/pdf)
 - [Mathematics for Machine Learning: Linear Algebra](https://coursera.org/share/f7b2a5490da199784863314e386667aa)
+- [Introduction to Typography](https://coursera.org/share/7b866f49bc2d8a5714392ed96a91f684)
+- [Fundamentals of Graphic Design](https://coursera.org/share/bd60ef42629374c2630913ae19af00fc)
 
 
 Skills
