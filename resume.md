@@ -25,14 +25,14 @@ Experience
 **Full Stack Software Engineer, Indeed** (2017/10-2019/7)
 
 - I supported Indeed's private cloud
-- I learnt how things work in scale, with open source infras
+- I learnt how SWE work in scale in the real world
 
 **Software Engineer, Google** (2013/10-2017/10)
 
 - I built photo upload service for Google Maps
 - I processed data for Google Play Music's payment and reporting
 - I contributed to internal infrastructure and open source, including Golang and Android Studio
-- I learnt how things work in scale
+- I learnt how SWE work in scale in an alomost ideal world
 
 
 Education
