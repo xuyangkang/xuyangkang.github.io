@@ -7,9 +7,8 @@ Experience
 ---------
 **Software Engineer, DoorDash** (2021/10-present)
 
+- I lead a squad to bring more [DashPass](https://help.doordash.com/consumers/s/article/What-is-DashPass?language=en_US) features to Australia
 - I improved Japan Store Search
-- I'm bringing more features of [DashPass](https://help.doordash.com/consumers/s/article/What-is-DashPass?language=en_US) to Australia
-
 
 **Software Engineer/Tech Lead, ExaWizards** (2019/7-2021/9)
 
@@ -25,6 +24,7 @@ Experience
 **Full Stack Software Engineer, Indeed** (2017/10-2019/7)
 
 - I supported Indeed's private cloud
+- I managed monitoring, alerting, project health report and logs
 - I learnt how SWE work in scale in the real world
 
 **Software Engineer, Google** (2013/10-2017/10)
