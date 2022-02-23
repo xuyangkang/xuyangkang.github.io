@@ -8,6 +8,7 @@ Experience
 **Software Engineer, DoorDash** (2021/10-present)
 
 - I lead a squad to bring more [DashPass](https://help.doordash.com/consumers/s/article/What-is-DashPass?language=en_US) features to Australia
+    -  Confidential before launch
 - I improved Japan Store Search
 
 **Software Engineer/Tech Lead, ExaWizards** (2019/7-2021/9)
