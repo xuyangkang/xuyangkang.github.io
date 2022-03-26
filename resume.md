@@ -8,12 +8,14 @@ Experience
 **Software Engineer, DoorDash** (2021/10-present)
 
 - I lead a squad to bring more [DashPass](https://help.doordash.com/consumers/s/article/What-is-DashPass?language=en_US) features to Australia
-    -  Confidential before launch
+    -  [AfterPay-DashPass partnership](https://doordash.news/australia/dash-now-pay-later-doordash-launches-partnership-with-afterpay/)       
+    -  Australia annual DashPass plan
+    -  Reduce DashPass's subscription fee in Australia
 - I improved Japan Store Search
 
 **Software Engineer/Tech Lead, ExaWizards** (2019/7-2021/9)
 
-- I'm the leader of [exaBase Company Search (Formerly AnyInc)](https://exawizards.com/exabase/companysearch/)
+- I'm the Tech Lead of [exaBase Company Search (Formerly AnyInc)](https://exawizards.com/exabase/companysearch/)
 - I designed system architecture and selected the tech stack
 - I worked with ML engineer to convert the prototype to a production ready service
 - I built and launched the first version
@@ -32,7 +34,7 @@ Experience
 
 - I built photo upload service for Google Maps
 - I processed data for Google Play Music's payment and reporting
-- I contributed to internal infrastructure and open source, including Golang and Android Studio
+- I contributed to internal infrastructure and open source, including [Golang](https://github.com/golang/go/blob/0652274c10f8f2a520c30bf43bb968dac91bf9f5/AUTHORS#L1451) and [Android Studio](https://developer.android.com/training/app-indexing)
 - I learnt how SWE work in scale in an almost ideal world
 
 
