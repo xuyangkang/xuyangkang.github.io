@@ -5,7 +5,10 @@ E-mail & skype: [xuyangkang@gmail.com](mailto:xuyangkang@gmail.com)
 
 Experience
 ---------
-**Software Engineer, DoorDash** (2021/10-present)
+**Senior SRE-SWE, Google** (2013/10-2017/10)
+- I and the software I built keep Ads pipeline up
+
+**Software Engineer, DoorDash** (2021/10-2022/9)
 
 - I lead a squad to bring more [DashPass](https://help.doordash.com/consumers/s/article/What-is-DashPass?language=en_US) features to Australia
     -  [AfterPay-DashPass partnership](https://doordash.news/australia/dash-now-pay-later-doordash-launches-partnership-with-afterpay/)       
@@ -40,11 +43,11 @@ Experience
 
 Education
 ---------
-**MS. program in Computer Science, University of York** (2019-present)
+**MS. program in Computer Science, University of York** (2019-2022)
 
 - Part-time distance learning
-- Coursework in algorithm and data structure, big data analysis, computer architecture and operation system, network, etc.
-- Current progress: passed 9/10 courses, expected graduation: June 2022
+- Coursework in algorithm and data structure, big data analysis, computer architecture and operation system, network, etc
+- GPA: 3.34
 
 **B.S. in Computer Science, Nankai University** (2009-2013)
 
