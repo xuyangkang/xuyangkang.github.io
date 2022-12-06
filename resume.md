@@ -6,7 +6,8 @@ E-mail & skype: [xuyangkang@gmail.com](mailto:xuyangkang@gmail.com)
 Experience
 ---------
 **Senior SRE-SWE, Google** (2022/10-present)
-- I and the software I built keep the Ads pipeline up
+
+- I and the software I built keep the Ads build pipeline running
 
 **Software Engineer, DoorDash** (2021/10-2022/9)
 
@@ -46,7 +47,7 @@ Education
 **MS. program in Computer Science, University of York** (2019-2022)
 
 - Part-time distance learning
-- Coursework in algorithm and data structure, big data analysis, computer architecture and operation system, network, etc
+- Coursework in algorithm and data structure, big data analysis, computer architecture and operating system, network, etc
 - GPA: 3.34
 
 **B.S. in Computer Science, Nankai University** (2009-2013)
