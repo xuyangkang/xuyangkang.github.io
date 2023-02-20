@@ -8,9 +8,10 @@ Experience
 **Senior Software Engineer, Site Reliable Engineering, Google UK** (2022/10-present)
 
 - I and the software I built keep the Ads build pipeline running
-- Participate in a 12x7 on-call rotation
 - Improve Ads data reliability
 - Contribute to a data monitoring service
+- Participate in a 12x7 on-call rotation
+
 
 **Senior Software Engineer, DoorDash Japan** (2021/10-2022/9)
 
@@ -23,8 +24,8 @@ Experience
 **Software Engineer/Tech Lead, ExaWizards** (2019/7-2021/9)
 
 - Tech Lead of [exaBase Company Search (Formerly AnyInc)](https://exawizards.com/exabase/companysearch/)
-- Designed system architecture and selected the tech stack
-- Productionlize AI prototypes to a production-level quality service
+- Designed system architecture and decided the tech stack
+- Converted a prototype to a production-level quality service
 - Designed and implemented user management and authentication system
 - Improved search performance and scalability by sharding the ElasticSearch cluster
 - Established agile workflow
