@@ -54,6 +54,7 @@ Education
 - Coursework in algorithm and data structure, big data analysis, computer architecture and operating system, network, etc
 
 **B.S. in Computer Science, Nankai University** (2009-2013)
+
 - Dissertation: Optimization of language model in Chinese IME
 - Research in the parallel computing lab
 
