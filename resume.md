@@ -5,52 +5,56 @@ E-mail & skype: [xuyangkang@gmail.com](mailto:xuyangkang@gmail.com)
 
 Experience
 ---------
-**Senior SRE-SWE, Google** (2022/10-present)
+**Senior Software Engineer, Site Reliable Engineering, Google UK** (2022/10-present)
 
 - I and the software I built keep the Ads build pipeline running
+- Participate in a 12x7 on-call rotation
+- Improve Ads data reliability
+- Contribute to a data monitoring service
 
-**Software Engineer, DoorDash** (2021/10-2022/9)
+**Senior Software Engineer, DoorDash Japan** (2021/10-2022/9)
 
-- I lead a squad to bring more [DashPass](https://help.doordash.com/consumers/s/article/What-is-DashPass?language=en_US) features to Australia
+- Led a squad to bring more [DashPass](https://help.doordash.com/consumers/s/article/What-is-DashPass?language=en_US) features to Australia
     -  [AfterPay-DashPass partnership](https://doordash.news/australia/dash-now-pay-later-doordash-launches-partnership-with-afterpay/)       
     - Australia's annual DashPass plan
     -  Reduce DashPass's subscription fee in Australia
-- I improved Japan Store Search
+- Improved Japan Merchant Search
 
 **Software Engineer/Tech Lead, ExaWizards** (2019/7-2021/9)
 
-- I'm the Tech Lead of [exaBase Company Search (Formerly AnyInc)](https://exawizards.com/exabase/companysearch/)
-- I designed system architecture and selected the tech stack
-- I worked with ML engineers to convert the prototype to a production-ready service
-- I built and launched the first version
-- I designed and implemented the user management and authentication system
-- I improved search performance and scalability by sharding the ES cluster
-- I established agile workflow in the team
-- I worked with DevOps to setup CI/CD, monitoring and alerting 
+- Tech Lead of [exaBase Company Search (Formerly AnyInc)](https://exawizards.com/exabase/companysearch/)
+- Designed system architecture and selected the tech stack
+- Productionlize AI prototypes to a production-level quality service
+- Designed and implemented user management and authentication system
+- Improved search performance and scalability by sharding the ElasticSearch cluster
+- Established agile workflow
+- Integrated CI/CD, monitoring and alerting in the system
 
-**Full Stack Software Engineer, Indeed** (2017/10-2019/7)
+**Full Stack Software Engineer in DevOps, Indeed Japan** (2017/10-2019/7)
 
-- I supported Indeed's private cloud
-- I managed monitoring, alerting, project health reporting, and logs
-- I learned how SWE works in scale in the real world
+- Supported Indeed's private cloud
+- Managed monitoring, alerting, project health reporting and access logs
+- I learned how SWE works in scale in reality
 
 **Software Engineer, Google** (2013/10-2017/10)
 
-- I built the "Geo Photo Upload service" for Google Maps
-- I processed data for Google Play Music's payment and reporting
-- I contributed to internal infrastructure and open source, including [Golang](https://github.com/golang/go/blob/0652274c10f8f2a520c30bf43bb968dac91bf9f5/AUTHORS#L1451) and [Android Studio](https://developer.android.com/training/app-indexing)
+- Built the "Geo Photo Upload service" for Google Maps in C++
+- Processed data for Google Play Music's payment and reporting with pipelines
+- Contributed to internal infrastructure and open source, including [Golang](https://github.com/golang/go/blob/0652274c10f8f2a520c30bf43bb968dac91bf9f5/AUTHORS#L1451) and [Android Studio](https://developer.android.com/training/app-indexing)
 - I learned how SWE works in scale in an almost ideal world
 
 
 Education
 ---------
-**MS. program in Computer Science, University of York** (2019-2022)
+**Master of Science in Computer Science with Data Analytics, The University of York** (2019-2022)
 
-- Part-time distance learning
+- Dissertation: Top K Vector Similarity Search with Filters
+- Delivered by part-time distance learning
 - Coursework in algorithm and data structure, big data analysis, computer architecture and operating system, network, etc
-- GPA: 3.34
 
 **B.S. in Computer Science, Nankai University** (2009-2013)
+- Dissertation: Optimization of language model in Chinese IME
+- Research in the parallel computing lab
 
 **MOOCs**
 
@@ -73,10 +77,9 @@ Skills
 **Language:**
 
 - Chinese: Native
-- English: Business (IELTS 6.5, TOEIC 945)
-- Japanese: Intermidiate (JLPT N2)
+- English: Business
+- Japanese: Intermidiate
 
 Link to this page
 ------
 ![](qr-resume.png)
-
