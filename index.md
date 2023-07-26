@@ -1,1 +1,2 @@
- <div><img src="left.png" style="width: 50%; height: 50%; display: inline-block; vertical-align: bottom"/><img src="right.png" style="width: 50%; height: 50%; display: inline-block; vertical-align: bottom"/></div>
+![](left.png) ![](right.png)
+# office hours
