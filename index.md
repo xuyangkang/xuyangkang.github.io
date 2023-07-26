@@ -1,1 +1,1 @@
- <div><img src="left.svg" style="width: 50%; height: 50%; display: inline-block; vertical-align: bottom"/><img src="right.svg" style="width: 50%; height: 50%; display: inline-block; vertical-align: bottom"/></div>
+ <div><img src="left.png" style="width: 50%; height: 50%; display: inline-block; vertical-align: bottom"/><img src="right.png" style="width: 50%; height: 50%; display: inline-block; vertical-align: bottom"/></div>
