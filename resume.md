@@ -7,10 +7,17 @@ Experience
 ---------
 **Senior Software Engineer, Site Reliable Engineering, Google UK** (2022/10-present)
 
-- I and the software I built keep the Ads build pipeline running
-- Improve Ads data reliability
-- Contribute to a data monitoring service
-- Participate in a 12x7 on-call rotation
+PMax (2023/7-present)
+- Review and improve PMax system's reliability
+- Define SLO/SLA/SLIs
+- Plan resources
+- Perform load test
+
+Ads Build and Data Reliability (2022/10-2023/6):
+- I and the software I built kept the Ads build pipeline running
+- Improved Ads data reliability
+- Contributed to data monitoring service
+- Participated in a 12x7 on-call rotation
 
 
 **Senior Software Engineer, DoorDash Japan** (2021/10-2022/9)
@@ -18,13 +25,14 @@ Experience
 - Led a squad to bring more [DashPass](https://help.doordash.com/consumers/s/article/What-is-DashPass?language=en_US) features to Australia
     -  [AfterPay-DashPass partnership](https://doordash.news/australia/dash-now-pay-later-doordash-launches-partnership-with-afterpay/)       
     - Australia's annual DashPass plan
-    -  Reduce DashPass's subscription fee in Australia
-- Improved Japan Merchant Search
+    - Reduced DashPass's subscription fee in Australia
+- Improved Japan merchant search
+- Introduced A/B test framework in Japan
 
 **Software Engineer/Tech Lead, ExaWizards** (2019/7-2021/9)
 
 - Tech Lead of [exaBase Company Search (Formerly AnyInc)](https://exawizards.com/exabase/companysearch/)
-- Designed system architecture and decided the tech stack
+- Designed system architecture and selected the tech stack
 - Converted a prototype to a production-level quality service
 - Designed and implemented user management and authentication system
 - Improved search performance and scalability by sharding the ElasticSearch cluster
