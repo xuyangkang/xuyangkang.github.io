@@ -55,6 +55,11 @@ Ads Build and Data Reliability (2022/10-2023/6):
 
 Education
 ---------
+**Master of Science in High Performance Computing with Data Science, The University of Edinburgh** (2023-)
+- Delivered by part-time distance learning
+- Expected graduation: 2026
+
+
 **Master of Science in Computer Science with Data Analytics, The University of York** (2019-2022)
 
 - Dissertation: Top K Vector Similarity Search with Filters
