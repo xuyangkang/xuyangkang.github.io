@@ -8,13 +8,15 @@ Experience
 **Senior Software Engineer, Site Reliable Engineering, Google UK** (2022/10-present)
 
 PMax (2023/7-present)
+
 - Review and improve PMax system's reliability
 - Define SLO/SLA/SLIs
 - Plan resources
 - Perform load test
 
 Ads Build and Data Reliability (2022/10-2023/6):
-- I and the software I built kept the Ads build pipeline running
+
+- I and the software I built kept the Ads build pipeline up
 - Improved Ads data reliability
 - Contributed to data monitoring service
 - Participated in a 12x7 on-call rotation
