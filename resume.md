@@ -7,12 +7,15 @@ Experience
 ---------
 **Senior Software Engineer, Site Reliable Engineering, Google UK** (2022/10-present)
 
-PMax (2023/7-present)
+ASAP (2024/1-)
 
-- Review and improve PMax system's reliability
-- Define SLO/SLA/SLIs
-- Plan resources
-- Perform load test
+- I build software to evaluate if Google core services are following the best reliability practice
+
+PMax (2023/7-2024/1)
+
+- Reviewd and improved PMax system's reliability
+- Defined SLO/SLA/SLIs
+- Performd load test and resource planning
 
 Ads Build and Data Reliability (2022/10-2023/6):
 
