@@ -1,6 +1,4 @@
-![](header.png)
-===
-![](left_v2.png) ![](right.png)
+![](left.png) ![](right.png)
 
 ## Resume
 A formal resume is [here](https://xuyang.me/#!resume.md)
