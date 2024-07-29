@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Page Title</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            /* Light background color */
+        }
+
+        .iframe-container {
+            width: 80%;
+            /* Set width as a percentage of the container */
+            max-width: 800px;
+            /* Maximum width */
+            height: 80%;
+            /* Set height as a percentage of the container */
+            max-height: 600px;
+            /* Maximum height */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Box shadow for depth */
+            border: 1px solid #ccc;
+            /* Light border */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            /* Remove iframe border */
+        }
+    </style>
+    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="xuyang" data-description="Support me on Buy me a coffee!" data-message="" data-color="#5F7FFF"
+        data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 </head>
+
 <body>
-    <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="xuyang" data-description="Support me on Buy me a coffee!" data-message="" data-color="#5F7FFF" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
-    <iframe src="https://docs.google.com/document/d/e/2PACX-1vSnWJha-lZkUMDujcivhVRqYNVv22KlEv5YQR-VL1E4_lq-N30vYwt_edmqKtTPfxg1qHFh2BoUbELI/pub?embedded=true"></iframe>
+    <div class="iframe-container">
+        <iframe
+            src="https://docs.google.com/document/d/e/2PACX-1vSnWJha-lZkUMDujcivhVRqYNVv22KlEv5YQR-VL1E4_lq-N30vYwt_edmqKtTPfxg1qHFh2BoUbELI/pub?embedded=true"></iframe>
+    </div>
 </body>
+
 </html>
