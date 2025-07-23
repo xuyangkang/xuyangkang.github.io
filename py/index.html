@@ -2,29 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brython Console</title>
-    <style>
-        /* Reset default margin and padding from the browser */
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden; /* Hide scrollbars on the main page */
-        }
-        /* Make the iframe fill the entire viewport */
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none; /* Remove the default iframe border */
-        }
-    </style>
+    <!-- This meta tag handles the redirect. -->
+    <!-- content="0; ..." means redirect immediately (after 0 seconds). -->
+    <!-- url=... is the destination URL. -->
+    <meta http-equiv="refresh" content="0; url=https://brython.info/console.html">
+    <title>Redirecting to Brython Console...</title>
 </head>
 <body>
-    <!-- The iframe will now cover the entire page based on the CSS above -->
-    <iframe 
-        src="https://brython.info/console.html"
-        title="Brython Python Console">
-    </iframe>
+    <!-- This content is shown if the redirect fails or is slow. -->
+    <p>If you are not redirected automatically, follow this <a href="https://brython.info/console.html">link to the Brython console</a>.</p>
 </body>
 </html>
