@@ -2,14 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- This meta tag handles the redirect. -->
-    <!-- content="0; ..." means redirect immediately (after 0 seconds). -->
-    <!-- url=... is the destination URL. -->
-    <meta http-equiv="refresh" content="0; url=https://brython.info/tests/console.html?lang=en">
-    <title>Redirecting to Brython Console...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Console</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            overflow: hidden;
+        }
+        #console {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.13.0/brython.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.13.0/brython_stdlib.js"></script>
 </head>
-<body>
-    <!-- This content is shown if the redirect fails or is slow. -->
-    <p>If you are not redirected automatically, follow this <a href="https://brython.info/tests/console.html?lang=en">link to the Brython console</a>.</p>
+<body onload="brython()">
+    <div id="console" class="brython-interpreter" contenteditable="true"></div>
+    <script type="text/python">
+    from interpreter import Interpreter
+    Interpreter("console")
+    </script>
 </body>
 </html>
