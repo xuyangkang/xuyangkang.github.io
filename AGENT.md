@@ -33,8 +33,7 @@ This document serves as the single source of truth for AI agents (and human cont
 ├── scripts/
 │   └── update_dividends.py  # Python script (zero dependencies) fetching Yahoo Finance data
 ├── market/
-│   ├── index.html      # JEIP & JEQP Dividend Monitor (monthly payout stats, history & TradingView charts)
-│   └── index_dev.html  # Development version of the market console
+│   └── index.html      # JEIP & JEQP Dividend Monitor (monthly payout stats, history & TradingView charts)
 ├── py/
 │   └── index.html      # In-browser Python REPL running on Brython
 └── *.svg, *.png, *.jpg # Asset logos (Google, DoorDash, Edinburgh, York, Nankai, QR code, etc.)
