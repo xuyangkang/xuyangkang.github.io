@@ -1,0 +1,151 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[left=0.6in,top=0.4in,right=0.6in,bottom=0.4in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+
+% --- Font and Layout Settings ---
+\pagestyle{empty} % Remove page numbers
+\raggedright % Prevent awkward spacing
+\urlstyle{same} % URLs look like text
+\setlist[itemize]{noitemsep, topsep=1pt, parsep=0pt, partopsep=0pt, leftmargin=*}
+
+% --- Section Formatting ---
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{6pt}{2pt}
+
+% --- Custom Commands ---
+\newcommand{\entry}[4]{
+  \textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill \textit{#4}
+}
+
+\begin{document}
+
+% --- Header ---
+\begin{center}
+    {\Huge \textbf{Xuyang Kang}} \\ \vspace{4pt}
+    London, UK \\ \vspace{2pt}
+    \href{mailto:xuyangkang@gmail.com}{xuyangkang@gmail.com}
+\end{center}
+\vspace{-6pt}
+
+% --- Summary ---
+\section{Professional Summary}
+Senior Tech Lead with 10+ years of experience in hyperscale backend, distributed systems, and AI infrastructure. Currently focused on Site Reliability Engineering for Google's Agentic AI platform and Gemini Enterprise. Combines deep systems expertise with advanced training in High Performance Computing (HPC) to architect resilient runtime ecosystems, optimize ML workflows, and safeguard mission-critical AI services.
+
+% --- Experience ---
+\section{Experience}
+
+\entry{Google}{London, UK}{Senior Software Engineer, SRE}{2026 -- Present}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Lead site reliability initiatives for Google's Agentic AI platform, ensuring operational readiness and high availability for enterprise AI workloads.
+    \item Architected and executed comprehensive blackbox testing frameworks (load tests, active synthetic probers) covering \textbf{XX} Critical User Journeys (CUJs) across Gemini Enterprise and the agentic AI runtime, validating system resiliency to support key launch milestones.
+    \item Safeguarded high availability via 12-hour on-call rotation shifts, triaging real-time alerts and mitigating high-severity production incidents across Agentic AI services.
+\end{itemize}
+\vspace{3pt}
+
+\entry{Google}{London, UK}{Senior Software Engineer, SRE, Tech Lead -- Ads}{Oct 2022 -- 2026}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Architected and implemented a customized OLAP engine monitoring \textbf{XX} Critical User Journeys (CUJs) across flagship platforms including AdSense, AdMob, and Google Ads Manager for \textbf{X} internal customers; mitigated critical visibility gaps in the Ads ecosystem by delivering an aggregated, user-centric monitoring solution that bridges raw system metrics and business-critical reliability journeys.
+    \item Drove the team's technical vision and strategy while identifying and resolving complex reliability issues as a hands-on individual contributor.
+    \item Engineered an LLM-powered multi-agent system to automate internal team onboarding to the customized monitoring infrastructure; reduced onboarding time from weeks to hours and enabled seamless scaling across the entire Google Ads ecosystem.
+    \item Developed AI-driven dashboards and alerting systems to monitor CUJ health; validated AI performance through rigorous backtesting to ensure accuracy.
+    \item Programmatically defined and measured adherence to SRE best practices to ensure systemic reliability.
+    \item Maintained and improved the reliability of Ads Performance Max (PMax) campaigns and the Ads Build pipeline/data infrastructure.
+    \item Safeguarded high availability via 12-hour on-call rotation shifts, mitigating critical incidents with \textbf{\$XX,XXX+} revenue and significant user experience impact.
+\end{itemize}
+\vspace{3pt}
+
+\entry{DoorDash}{Japan}{Senior Software Engineer}{Oct 2021 -- Sep 2022}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Led a team of developers delivering key features to drive the growth of DoorDash's APAC business.
+    \item Successfully launched the DashPass annual subscription model in Australia.
+    \item Led the technical integration and launch of the AfterPay \& DashPass partnership.
+    \item Improved Search functionality and A/B testing frameworks for the Japanese market.
+\end{itemize}
+\vspace{3pt}
+
+\entry{ExaWizards}{Japan}{Software Engineer, Tech Lead}{July 2019 -- Sep 2021}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Led the development team for the CompanySearch service, taking it from Proof of Concept (PoC) to partner delivery.
+    \item \textbf{Search Optimization:} Architected a high-dimensional vector similarity search solution with complex metadata filters; replaced legacy parallel linear scanning with a hybrid query scheduler across PostgreSQL and Elasticsearch, which served as the foundation for my MSc Research.
+    \item Designed and implemented a user management subsystem to scale the service for public use.
+    \item Introduced and scaled Elasticsearch to enable robust text search and filtering capabilities.
+    \item Established a dedicated sub-team to productionize data pipelines and support research initiatives.
+    \item Defined and enforced software engineering best practices within the team.
+\end{itemize}
+\vspace{3pt}
+
+\entry{Indeed}{Japan}{Software Engineer}{Nov 2017 -- July 2019}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Maintained and optimized infrastructure for Indeed's private cloud environment.
+\end{itemize}
+\vspace{3pt}
+
+\entry{Google}{Beijing $\to$ Mountain View (HQ)}{Software Engineer}{Oct 2013 -- Oct 2017}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Contributed to high-impact projects including Street View, Android Studio, YouTube Music, and the Go programming language (Golang).
+\end{itemize}
+
+\newpage
+% --- Research & Projects ---
+\section{Research \& Academic Projects}
+
+\entry{MSc Dissertation: AI-Powered Scaling of ML Workflows}{University of Edinburgh}{Researcher}{2025 -- 2026}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Developed a framework to bridge the gap between interactive Jupyter Notebook prototyping and production-grade orchestration using \textbf{Kubeflow Pipelines}.
+    \item Leveraged \textbf{LLMs and Multi-agent patterns} to automate the transformation of monolithic notebooks into modular, scalable pipeline components, reducing manual productionization overhead.
+    \item Evaluated system performance and scalability on the \textbf{Edinburgh International Data Facility (EIDF)} HPC infrastructure to support large-scale data science tasks.
+    \item Integrated advanced prompt engineering to ensure code quality, reproducibility, and alignment with MLOps best practices.
+\end{itemize}
+
+\entry{MSc Dissertation: Top K vector similarity search with filters}{University of York}{Research Engineer (Project Lead)}{2022}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Investigated vector similarity search combined with filters for the exaBase company search dataset.
+    \item Evaluated the query performance of linear scan, faiss, postgreSQL and elasticsearch.
+    \item Proposed a custom query scheduler that utilizes postgresql for queries with no or weak filters and elasticsearch for queries with strong filters.
+    \item Measured average query times and analyzed the experiment data utilizing Multi-factor ANOVA.
+\end{itemize}
+\vspace{3pt}
+
+% --- Education ---
+\section{Education}
+
+\textbf{University of Edinburgh} \hfill Graduated 2026 \\
+M.Sc. in High Performance Computing with Data Science \\
+\textit{Relevant Coursework:} Machine Learning at Scale, Accelerated Systems: Principles and Practice(GPU programming with CUDA, OpenMP and SYCL), Parallel Design Patterns, Message-Passing Programming (MPI), Threaded Programming (OpenMP), Performance Programming
+
+\vspace{2pt}
+\textbf{University of York} \hfill Graduated 2022 \\
+M.Sc. in Computer Science with Data Analytics
+
+\vspace{2pt}
+\textbf{Nankai University} \hfill Graduated 2013 \\
+B.Sc. in Computer Science
+
+\section{Certifications \& Leadership}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item \textbf{Management Essentials} | \href{https://certificates.emeritus.org/832a9cd2-8d9a-438c-9005-d1f2d6e17ca4#acc.ULclBnxK}{Columbia Business School Executive Education} \hfill 2023
+    \item \textit{Focus:} Developed core competencies in data-driven decision-making, high-impact leadership strategies, and driving cross-functional alignment through influence and social capital.
+\end{itemize}
+
+\section{Technical Skills}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item \textbf{Programming Languages:} Python, Go (Golang), Java, Scala, C/C++, SQL, Unix Shell Scripting.
+    \item \textbf{High Performance Computing:} Distributed-Memory Programming (MPI), Shared-Memory Programming (OpenMP), Accelerated Systems (GPGPU/CUDA), Parallel Design Patterns, Performance Optimization \& Profiling.
+    \item \textbf{ML \& Search Infrastructure:} Kubeflow Pipelines, MLOps, Vector Similarity Search (Faiss), Search Engines (Elasticsearch), Distributed Model Training, LLM Orchestration, Multi-agent Systems.
+    \item \textbf{Backend \& Infrastructure:} Kubernetes, Docker, Distributed Systems Architecture, Microservices, High-scale OLAP (BigQuery/Dremel), Hyperscale Internal Cloud Infrastructure.
+    \item \textbf{Reliability \& Observability:} High-scale Monitoring/Telemetry, SLI/SLO/SLA Frameworks, Alerting Systems, Incident Management, Distributed Tracing, Capacity Planning.
+    \item \textbf{Full-Stack \& Tooling:} React, TypeScript, HTML/CSS, Backend-for-Frontend (BFF) patterns, JWT/Auth management, internal dashboard development.
+\end{itemize}
+
+\section{Competencies}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item \textbf{Research Methods:} Experimental Design (A/B Testing, Benchmarking), Quantitative Analysis, Hypothesis Testing, Multi-factor ANOVA.
+    \item \textbf{Data Analysis:} Python (Pandas, NumPy, Scikit-learn), Statistical Modeling, Data Visualization, Exploratory Data Analysis (EDA).
+    \item \textbf{AI \& Technology:} Large Language Models (LLMs), Machine Learning Architecture, Research Workflow Automation.
+    \item \textbf{Languages:} English (Professional), Chinese (Native), Japanese (Professional Working Proficiency).
+\end{itemize}
+
+\end{document}

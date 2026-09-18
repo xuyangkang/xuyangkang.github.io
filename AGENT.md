@@ -28,7 +28,7 @@ This document serves as the single source of truth for AI agents (and human cont
 ├── resume/
 │   └── index.html      # Directory index redirect to /resume.pdf
 ├── tex/
-│   └── main.tex        # LaTeX source code for resume.pdf
+│   └── resume.tex      # LaTeX source code for resume.pdf
 ├── .github/
 │   └── workflows/
 │       └── update_dividends.yml # Weekly offline cron job to sync JEIP & JEQP dividends
@@ -91,8 +91,12 @@ This document serves as the single source of truth for AI agents (and human cont
 - Follow the existing `.icon-text` structure (logo image + title/time span).
 
 ### Updating Resume
-- Overwrite `resume.pdf` with the new document.
-- Verify that `resume.html` and `resume/index.html` continue to redirect properly.
+- Edit `tex/resume.tex` for resume source updates.
+- Compile to `resume.pdf`:
+  ```bash
+  pdflatex -interaction=nonstopmode -output-directory=/tmp tex/resume.tex && cp /tmp/resume.pdf ./resume.pdf
+  ```
+- Verify that `resume.html` and `resume/index.html` continue to redirect properly to `resume.pdf`.
 
 ### Local Previewing
 Since this is a pure static site, run any lightweight local server from the repository root:
