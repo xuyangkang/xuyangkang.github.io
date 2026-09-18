@@ -27,6 +27,8 @@ This document serves as the single source of truth for AI agents (and human cont
 ├── resume.html         # HTTP-equiv & JS redirect to /resume.pdf
 ├── resume/
 │   └── index.html      # Directory index redirect to /resume.pdf
+├── tex/
+│   └── main.tex        # LaTeX source code for resume.pdf
 ├── .github/
 │   └── workflows/
 │       └── update_dividends.yml # Weekly offline cron job to sync JEIP & JEQP dividends

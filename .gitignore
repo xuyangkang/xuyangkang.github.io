@@ -37,3 +37,11 @@ env/
 *.tmp
 *~
 scratch/
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk

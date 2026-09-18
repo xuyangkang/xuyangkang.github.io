@@ -1,0 +1,93 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{titlesec}
+
+% --- Font and Layout Settings ---
+\pagestyle{empty} % Remove page numbers
+\raggedright % Prevent awkward spacing
+\urlstyle{same} % URLs look like text
+
+% --- Section Formatting ---
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+% --- Custom Commands ---
+\newcommand{\entry}[4]{
+  \textbf{#1} \hfill #2 \\
+  \textit{#3} \hfill \textit{#4}
+}
+
+\begin{document}
+
+% --- Header ---
+\begin{center}
+    {\Huge \textbf{Xuyang Kang}} \\ \vspace{4pt}
+    London, UK \\ \vspace{2pt}
+    \href{mailto:xuyangkang@gmail.com}{xuyangkang@gmail.com}
+\end{center}
+
+% --- Summary ---
+\section{Professional Summary}
+Generalist Software Engineer with 10+ years of experience in backend engineering, data pipelines, and DevOps/SRE. Currently focused on Site Reliability Engineering (SRE), specifically monitoring business and system metrics for Critical User Journeys (CUJs) across Google Ads services.
+
+% --- Experience ---
+\section{Experience}
+
+\entry{Google}{London, UK}{Senior Software Engineer, SRE, Tech Lead}{Oct 2022 -- Present}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Drive the team's technical vision and strategy while identifying and resolving complex reliability issues as a hands-on contributor.
+    \item Architected and implemented a customized OLAP engine monitoring \textbf{XXX} CUJs for \textbf{X} internal customers; significantly improved stakeholder satisfaction by providing aggregated, high-scale, real-time reliability insights.
+    \item Developed AI-driven dashboards and alerting systems to monitor CUJ health; validated AI performance through rigorous backtesting to ensure accuracy.
+    \item Programmatically defined and measured adherence to SRE best practices to ensure systemic reliability.
+    \item Maintained and improved the reliability of Ads Performance Max (PMax) campaigns and the Ads Build pipeline/data infrastructure.
+    \item Safeguarded high availability via $7\times12$ on-call rotation, mitigating critical incidents with \textbf{\$XX,XXX+} revenue and significant user experience impact.
+\end{itemize}
+\vspace{6pt}
+
+\entry{DoorDash}{Japan}{Senior Software Engineer}{Oct 2021 -- Sep 2022}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Led a team of developers delivering key features to drive the growth of DoorDash's APAC business.
+    \item Successfully launched the DashPass annual subscription model in Australia.
+    \item Led the technical integration and launch of the AfterPay \& DashPass partnership.
+    \item Improved Search functionality and A/B testing frameworks for the Japanese market.
+\end{itemize}
+\vspace{6pt}
+
+\entry{ExaWizards}{Japan}{Software Engineer, Tech Lead}{July 2019 -- Sep 2021}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Led the development team for the CompanySearch service, taking it from Proof of Concept (PoC) to partner delivery.
+    \item Designed and implemented a user management subsystem to scale the service for public use.
+    \item Introduced and scaled Elasticsearch to enable robust text search and filtering capabilities.
+    \item Established a dedicated sub-team to productionize data pipelines and support research initiatives.
+    \item Defined and enforced software engineering best practices within the team.
+\end{itemize}
+\vspace{6pt}
+
+\entry{Indeed}{Japan}{Software Engineer}{Nov 2017 -- July 2019}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Maintained and optimized infrastructure for Indeed's private cloud environment.
+\end{itemize}
+\vspace{6pt}
+
+\entry{Google}{Beijing $\to$ Mountain View (HQ)}{Software Engineer}{Oct 2013 -- Oct 2017}
+\begin{itemize}[noitemsep, leftmargin=*]
+    \item Contributed to high-impact projects including Street View, Android Studio, YouTube Music, and the Go programming language (Golang).
+\end{itemize}
+
+% --- Education ---
+\section{Education}
+
+\textbf{University of Edinburgh} \hfill 2023 -- Present \\
+M.Sc. in High Performance Computing with Data Science (Part-time)
+
+\vspace{4pt}
+\textbf{University of York} \hfill Graduated 2022 \\
+M.Sc. in Computer Science with Data Analytics
+
+\vspace{4pt}
+\textbf{Nankai University} \hfill Graduated 2013 \\
+B.Sc. in Computer Science
+
+\end{document}
