@@ -28,7 +28,7 @@ This document serves as the single source of truth for AI agents (and human cont
 ├── resume/
 │   └── index.html      # Directory index redirect to /resume.pdf
 ├── market/
-│   ├── index.html      # "炼金控制台" (multi-asset TradingView dashboard with auto-cycle)
+│   ├── index.html      # JEIP & JEQP Dividend Monitor (monthly payout stats, history & TradingView charts)
 │   └── index_dev.html  # Development version of the market console
 ├── py/
 │   └── index.html      # In-browser Python REPL running on Brython
@@ -50,7 +50,7 @@ This document serves as the single source of truth for AI agents (and human cont
    - Content presentation is structured around semantic tags (`<header>`, `<main>`, `<section>`, `<footer>`) and responsive, CSS Grid card-based layouts.
 
 3. **Autonomous Sub-Applications**:
-   - `/market`: Standalone TradingView embed displaying BTC, SP500, USDJPY, and Gold with automated tab-switching.
+   - `/market`: JEIP & JEQP Dividend Monitor (clean sans-serif dashboard, high-density monthly distribution tracker and TradingView widgets).
    - `/py`: Client-side Python REPL powered by Brython.
    - `/resume` & `/resume.html`: Dual redirection handlers pointing directly to `/resume.pdf`.
 
