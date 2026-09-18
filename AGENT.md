@@ -27,6 +27,11 @@ This document serves as the single source of truth for AI agents (and human cont
 ├── resume.html         # HTTP-equiv & JS redirect to /resume.pdf
 ├── resume/
 │   └── index.html      # Directory index redirect to /resume.pdf
+├── .github/
+│   └── workflows/
+│       └── update_dividends.yml # Weekly offline cron job to sync JEIP & JEQP dividends
+├── scripts/
+│   └── update_dividends.py  # Python script (zero dependencies) fetching Yahoo Finance data
 ├── market/
 │   ├── index.html      # JEIP & JEQP Dividend Monitor (monthly payout stats, history & TradingView charts)
 │   └── index_dev.html  # Development version of the market console

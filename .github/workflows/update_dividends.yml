@@ -1,0 +1,39 @@
+name: Update JEIP & JEQP Dividends
+
+on:
+  schedule:
+    # Run every Friday at 08:00 UTC (captures monthly Thursday ex-dividend announcements)
+    - cron: '0 8 * * 5'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update-dividends:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run dividend updater
+        run: |
+          python scripts/update_dividends.py
+
+      - name: Commit and push changes if updated
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add market/index.html
+          if git diff --staged --quiet; then
+            echo "No changes in dividend data."
+          else
+            git commit -m "chore(data): auto-update JEIP & JEQP dividends [skip ci]"
+            git push
+          fi
