@@ -22,10 +22,9 @@
             --green: #10b981;
             --green-light: #ecfdf5;
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
-            --radius-xl: 16px;
-            --radius-md: 10px;
-            --radius-sm: 6px;
+            --radius-xl: 12px;
+            --radius-md: 8px;
+            --radius-sm: 5px;
         }
 
         * {
@@ -34,95 +33,92 @@
             padding: 0;
         }
 
+        html, body {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.45;
-            padding: 16px 20px 32px;
             font-variant-numeric: tabular-nums;
             -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            padding: 12px 16px;
         }
 
-        .container {
-            max-width: 1400px;
+        .dashboard-wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            max-width: 1920px;
             margin: 0 auto;
+            min-height: 0;
         }
 
-        /* 顶部紧凑导航栏 */
+        /* 顶部紧凑标题栏 */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
+            flex-shrink: 0;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
             border-bottom: 1px solid var(--border);
         }
 
-        .header-left {
-            display: flex;
-            align-items: baseline;
-            gap: 12px;
-        }
-
-        .back-link {
-            text-decoration: none;
-            color: var(--text-sub);
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 5px 10px;
-            border-radius: var(--radius-sm);
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            transition: all 0.15s ease;
-        }
-
-        .back-link:hover {
-            color: var(--text-main);
-            border-color: var(--border-highlight);
-            background: #f9fafb;
-        }
-
-        h1 {
-            font-size: 1.4rem;
+        .header-title {
+            font-size: 1.25rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .header-meta {
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .pulse-dot {
-            width: 8px;
-            height: 8px;
+            width: 7px;
+            height: 7px;
             background-color: var(--green);
             border-radius: 50%;
             display: inline-block;
             box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
         }
 
-        /* 主监控双列网格 */
+        /* 主监控双列网格 - 自动填充满屏高 */
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 12px;
+            flex: 1;
+            min-height: 0;
+            height: 100%;
         }
 
         .fund-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
             border-radius: var(--radius-xl);
-            padding: 20px;
+            padding: 12px 14px;
             box-shadow: var(--shadow-sm);
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 8px;
+            height: 100%;
+            min-height: 0;
         }
 
         /* 基金标题区 */
@@ -130,16 +126,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-shrink: 0;
         }
 
         .title-area {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .ticker {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 800;
             letter-spacing: -0.01em;
         }
@@ -147,9 +144,9 @@
         .badge-jeip {
             background: var(--jeip-light);
             color: var(--jeip-accent);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            padding: 3px 8px;
+            padding: 2px 7px;
             border-radius: var(--radius-sm);
             border: 1px solid rgba(37, 99, 235, 0.2);
         }
@@ -157,30 +154,30 @@
         .badge-jeqp {
             background: var(--jeqp-light);
             color: var(--jeqp-accent);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            padding: 3px 8px;
+            padding: 2px 7px;
             border-radius: var(--radius-sm);
             border: 1px solid rgba(124, 58, 237, 0.2);
         }
 
         .fund-sub-label {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-sub);
             font-weight: 500;
         }
 
         .ext-links {
             display: flex;
-            gap: 6px;
+            gap: 5px;
         }
 
         .mini-link {
             text-decoration: none;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: var(--text-sub);
             background: var(--bg-color);
-            padding: 4px 8px;
+            padding: 3px 6px;
             border-radius: var(--radius-sm);
             border: 1px solid var(--border);
             font-weight: 500;
@@ -193,18 +190,19 @@
             background: #e5e7eb;
         }
 
-        /* 核心股息大看板指标 */
+        /* 核心股息大指标 (3 列) */
         .kpi-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            gap: 8px;
+            flex-shrink: 0;
         }
 
         .kpi-box {
             background: #fafafa;
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
-            padding: 12px 14px;
+            padding: 6px 10px;
         }
 
         .kpi-box.highlight-jeip {
@@ -218,19 +216,19 @@
         }
 
         .kpi-label {
-            font-size: 0.72rem;
+            font-size: 0.68rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--text-muted);
-            margin-bottom: 4px;
             font-weight: 600;
         }
 
         .kpi-value {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 800;
             color: var(--text-main);
             letter-spacing: -0.02em;
+            line-height: 1.2;
         }
 
         .kpi-box.highlight-jeip .kpi-value {
@@ -242,12 +240,11 @@
         }
 
         .kpi-sub {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--text-sub);
-            margin-top: 2px;
         }
 
-        /* 下次派息日程提示条 */
+        /* 派息日程栏 */
         .schedule-bar {
             display: flex;
             justify-content: space-between;
@@ -255,31 +252,30 @@
             background: var(--green-light);
             border: 1px solid #a7f3d0;
             border-radius: var(--radius-md);
-            padding: 10px 14px;
-            font-size: 0.85rem;
+            padding: 5px 10px;
+            font-size: 0.78rem;
             color: #065f46;
+            flex-shrink: 0;
         }
 
         .schedule-title {
             font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 6px;
         }
 
         .schedule-dates {
             font-weight: 600;
         }
 
-        /* 历史分红记录紧凑表格 */
+        /* 历史分红记录紧凑表 (展示近 4 期) */
         .history-section {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 4px;
+            flex-shrink: 0;
         }
 
         .section-header {
-            font-size: 0.8rem;
+            font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.04em;
@@ -291,27 +287,23 @@
         .payout-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.82rem;
+            font-size: 0.76rem;
         }
 
         .payout-table th {
             text-align: left;
-            font-size: 0.72rem;
+            font-size: 0.68rem;
             color: var(--text-muted);
-            padding: 6px 8px;
+            padding: 3px 6px;
             border-bottom: 1px solid var(--border);
             font-weight: 600;
             text-transform: uppercase;
         }
 
         .payout-table td {
-            padding: 6px 8px;
+            padding: 3px 6px;
             border-bottom: 1px solid #f3f4f6;
             color: var(--text-main);
-        }
-
-        .payout-table tr:hover td {
-            background-color: #f9fafb;
         }
 
         .amount-col {
@@ -323,9 +315,10 @@
             text-align: right;
         }
 
-        /* TradingView 图表容器 */
+        /* TradingView 图表容器 - 铺满剩余垂直空间 */
         .chart-box {
-            height: 380px;
+            flex: 1;
+            min-height: 0;
             width: 100%;
             border-radius: var(--radius-md);
             overflow: hidden;
@@ -333,25 +326,18 @@
             background: #ffffff;
         }
 
-        /* 移动端与副屏适配 */
-        @media (max-width: 1024px) {
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .chart-box {
-                height: 340px;
-            }
+        .tradingview-widget-container {
+            height: 100%;
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
+    <div class="dashboard-wrapper">
         <header>
-            <div class="header-left">
-                <a href="../" class="back-link">&larr; Home</a>
-                <h1>JEIP &amp; JEQP Dividend Monitor</h1>
+            <div class="header-title">
+                <span>JEIP &amp; JEQP Dividend Monitor</span>
             </div>
             <div class="header-meta">
                 <span class="pulse-dot"></span>
@@ -363,12 +349,10 @@
             <!-- JEIP 监控卡片 -->
             <article class="fund-card" id="jeip">
                 <div class="fund-header">
-                    <div>
-                        <div class="title-area">
-                            <span class="ticker">JEIP</span>
-                            <span class="badge-jeip">LSE &middot; GBX</span>
-                            <span class="fund-sub-label">S&amp;P 500 Covered Call</span>
-                        </div>
+                    <div class="title-area">
+                        <span class="ticker">JEIP</span>
+                        <span class="badge-jeip">LSE &middot; GBX</span>
+                        <span class="fund-sub-label">S&amp;P 500 Covered Call</span>
                     </div>
                     <div class="ext-links">
                         <a href="https://am.jpmorgan.com/gb/en/asset-management/per/products/jpm-us-equity-premium-income-active-ucits-etf-usd-dist-ie000u5mjoz6" target="_blank" rel="noopener noreferrer" class="mini-link">JPM 官网</a>
@@ -386,31 +370,27 @@
                     </div>
                     <div class="kpi-box">
                         <div class="kpi-label">最新单期派息</div>
-                        <div class="kpi-value">7.43 <span style="font-size:0.9rem;font-weight:600;">p</span></div>
+                        <div class="kpi-value">7.43 <span style="font-size:0.8rem;font-weight:600;">p</span></div>
                         <div class="kpi-sub">Sep 2026 派息</div>
                     </div>
                     <div class="kpi-box">
                         <div class="kpi-label">派息频次</div>
-                        <div class="kpi-value" style="font-size: 1.25rem; padding-top: 4px;">每月 (12次/年)</div>
+                        <div class="kpi-value" style="font-size: 1.05rem; padding-top: 2px;">每月 (12次/年)</div>
                         <div class="kpi-sub">月中发放</div>
                     </div>
                 </div>
 
                 <!-- 派息日程栏 -->
                 <div class="schedule-bar">
-                    <div class="schedule-title">
-                        <span>🗓️ 除息规律</span>
-                    </div>
-                    <div class="schedule-dates">
-                        每月第 2 个周四除息 &rarr; 次月中旬付款到账
-                    </div>
+                    <span class="schedule-title">🗓️ 除息规律</span>
+                    <span class="schedule-dates">每月第 2 个周四除息 &rarr; 次月中旬付款到账</span>
                 </div>
 
                 <!-- 历史派息明细 -->
                 <div class="history-section">
                     <div class="section-header">
                         <span>近期月度分红记录 (GBp)</span>
-                        <span style="font-size:0.75rem; color:var(--text-muted);">2026 Payouts</span>
+                        <span style="font-size:0.7rem; color:var(--text-muted);">2026 Payouts</span>
                     </div>
                     <table class="payout-table">
                         <thead>
@@ -441,24 +421,19 @@
                                 <td>2026-07-08</td>
                                 <td class="amount-col">13.69 p</td>
                             </tr>
-                            <tr>
-                                <td>2026-05-21</td>
-                                <td>2026-06-05</td>
-                                <td class="amount-col">16.03 p</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- TradingView Widget -->
+                <!-- TradingView Widget: 自动填满剩余空间 -->
                 <div class="chart-box">
                     <div class="tradingview-widget-container" style="height:100%;width:100%">
                         <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
-                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/LSE-JEIP/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track JEIP on TradingView</span></a></div>
+                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/LSE-JEIP/" rel="noopener nofollow" target="_blank"><span class="blue-text">LSE:JEIP &middot; JEPI Benchmark on TradingView</span></a></div>
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
                         {
                             "allow_symbol_change": false,
-                            "calendar": true,
+                            "calendar": false,
                             "details": false,
                             "hide_side_toolbar": true,
                             "hide_top_toolbar": false,
@@ -469,7 +444,7 @@
                             "locale": "en",
                             "save_image": false,
                             "style": "1",
-                            "symbol": "LSE:JEIP",
+                            "symbol": "AMEX:JEPI",
                             "theme": "light",
                             "timezone": "Europe/London",
                             "backgroundColor": "#ffffff",
@@ -485,12 +460,10 @@
             <!-- JEQP 监控卡片 -->
             <article class="fund-card" id="jeqp">
                 <div class="fund-header">
-                    <div>
-                        <div class="title-area">
-                            <span class="ticker">JEQP</span>
-                            <span class="badge-jeqp">LSE &middot; GBX</span>
-                            <span class="fund-sub-label">Nasdaq-100 Covered Call</span>
-                        </div>
+                    <div class="title-area">
+                        <span class="ticker">JEQP</span>
+                        <span class="badge-jeqp">LSE &middot; GBX</span>
+                        <span class="fund-sub-label">Nasdaq-100 Covered Call</span>
                     </div>
                     <div class="ext-links">
                         <a href="https://am.jpmorgan.com/gb/en/asset-management/per/products/jpm-nasdaq-equity-premium-income-active-ucits-etf-usd-dist-ie000u9j8hx9" target="_blank" rel="noopener noreferrer" class="mini-link">JPM 官网</a>
@@ -513,26 +486,22 @@
                     </div>
                     <div class="kpi-box">
                         <div class="kpi-label">派息频次</div>
-                        <div class="kpi-value" style="font-size: 1.25rem; padding-top: 4px;">每月 (12次/年)</div>
+                        <div class="kpi-value" style="font-size: 1.05rem; padding-top: 2px;">每月 (12次/年)</div>
                         <div class="kpi-sub">月中发放</div>
                     </div>
                 </div>
 
                 <!-- 派息日程栏 -->
                 <div class="schedule-bar">
-                    <div class="schedule-title">
-                        <span>🗓️ 除息规律</span>
-                    </div>
-                    <div class="schedule-dates">
-                        每月第 2 个周四除息 &rarr; 次月中旬付款到账
-                    </div>
+                    <span class="schedule-title">🗓️ 除息规律</span>
+                    <span class="schedule-dates">每月第 2 个周四除息 &rarr; 次月中旬付款到账</span>
                 </div>
 
                 <!-- 历史派息明细 -->
                 <div class="history-section">
                     <div class="section-header">
                         <span>近期月度分红记录 (USD)</span>
-                        <span style="font-size:0.75rem; color:var(--text-muted);">2026 Payouts</span>
+                        <span style="font-size:0.7rem; color:var(--text-muted);">2026 Payouts</span>
                     </div>
                     <table class="payout-table">
                         <thead>
@@ -563,24 +532,19 @@
                                 <td>2026-07-08</td>
                                 <td class="amount-col">$0.218</td>
                             </tr>
-                            <tr>
-                                <td>2026-05-21</td>
-                                <td>2026-06-05</td>
-                                <td class="amount-col">$0.260</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- TradingView Widget -->
+                <!-- TradingView Widget: 自动填满剩余空间 -->
                 <div class="chart-box">
                     <div class="tradingview-widget-container" style="height:100%;width:100%">
                         <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
-                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/LSE-JEQP/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track JEQP on TradingView</span></a></div>
+                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/LSE-JEQP/" rel="noopener nofollow" target="_blank"><span class="blue-text">LSE:JEQP &middot; JEPQ Benchmark on TradingView</span></a></div>
                         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
                         {
                             "allow_symbol_change": false,
-                            "calendar": true,
+                            "calendar": false,
                             "details": false,
                             "hide_side_toolbar": true,
                             "hide_top_toolbar": false,
@@ -591,7 +555,7 @@
                             "locale": "en",
                             "save_image": false,
                             "style": "1",
-                            "symbol": "LSE:JEQP",
+                            "symbol": "NASDAQ:JEPQ",
                             "theme": "light",
                             "timezone": "Europe/London",
                             "backgroundColor": "#ffffff",
