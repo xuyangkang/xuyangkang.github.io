@@ -214,9 +214,93 @@
             gap: 20px;
         }
 
+        /* 训练计划单选分段控制器 */
+        .plan-filter-bar {
+            display: flex;
+            align-items: center;
+            padding: 4px 0 6px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .plan-filter-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .plan-filter-track {
+            display: inline-flex;
+            align-items: center;
+            background: #f1f3f5;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3px;
+            gap: 2px;
+            flex-shrink: 0;
+        }
+
+        .plan-pill {
+            display: inline-flex;
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+            margin: 0;
+        }
+
+        .plan-pill input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+        }
+
+        .plan-pill-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-sub);
+            border-radius: 16px;
+            transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+        }
+
+        .plan-pill:hover .plan-pill-label {
+            color: var(--text-main);
+        }
+
+        .plan-pill input[type="radio"]:checked + .plan-pill-label {
+            background: #ffffff;
+            color: var(--accent);
+            font-weight: 700;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(37, 99, 235, 0.12);
+        }
+
+        .plan-pill-desc {
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .plan-pill input[type="radio"]:checked + .plan-pill-label .plan-pill-desc {
+            color: var(--accent);
+            opacity: 0.85;
+        }
+
+        .tab-btn.tab-dimmed {
+            opacity: 0.4;
+        }
+
+        .tab-btn.tab-dimmed:hover {
+            opacity: 0.85;
+        }
+
         /* 每个艺的独立区块 */
         .art-section {
-            scroll-margin-top: 100px;
+            scroll-margin-top: 142px;
         }
 
         .art-card {
@@ -515,6 +599,28 @@
                         <span>循环 <strong>3~4</strong> 组</span>
                         <span class="chip-sub">达标即进阶</span>
                     </span>
+                </div>
+            </div>
+
+            <!-- 训练计划单选分段控制器 -->
+            <div class="plan-filter-bar" role="radiogroup" aria-label="训练计划单选筛选">
+                <div class="plan-filter-track">
+                    <label class="plan-pill" title="显示全部六个动作">
+                        <input type="radio" name="planFilter" value="all" checked>
+                        <span class="plan-pill-label">全部</span>
+                    </label>
+                    <label class="plan-pill" title="周一 / 周四：俯卧撑 + 举腿">
+                        <input type="radio" name="planFilter" value="plan1">
+                        <span class="plan-pill-label">计划1 <span class="plan-pill-desc">(俯卧撑·举腿)</span></span>
+                    </label>
+                    <label class="plan-pill" title="周二 / 周五：引体向上 + 深蹲">
+                        <input type="radio" name="planFilter" value="plan2">
+                        <span class="plan-pill-label">计划2 <span class="plan-pill-desc">(引体·深蹲)</span></span>
+                    </label>
+                    <label class="plan-pill" title="周三 / 周六：倒立撑 + 桥">
+                        <input type="radio" name="planFilter" value="plan3">
+                        <span class="plan-pill-label">计划3 <span class="plan-pill-desc">(倒立·桥)</span></span>
+                    </label>
                 </div>
             </div>
 
@@ -1148,6 +1254,85 @@
             }
         ];
 
+        /**
+         * 训练计划配置（每周6天，两两组合成3组计划）
+         */
+        const TRAINING_PLANS = {
+            all: {
+                id: 'all',
+                name: '全部',
+                arts: ['pushups', 'squats', 'pullups', 'leg_raises', 'bridges', 'handstands']
+            },
+            plan1: {
+                id: 'plan1',
+                name: '计划1',
+                label: '计划1 (俯卧撑·举腿)',
+                arts: ['pushups', 'leg_raises']
+            },
+            plan2: {
+                id: 'plan2',
+                name: '计划2',
+                label: '计划2 (引体·深蹲)',
+                arts: ['pullups', 'squats']
+            },
+            plan3: {
+                id: 'plan3',
+                name: '计划3',
+                label: '计划3 (倒立·桥)',
+                arts: ['handstands', 'bridges']
+            }
+        };
+
+        let currentPlanId = 'all';
+
+        // 切换训练计划筛选
+        function setPlanFilter(planId, shouldScrollToFirst = false) {
+            if (!TRAINING_PLANS[planId]) planId = 'all';
+            currentPlanId = planId;
+
+            // 1. 同步单选 Radio 选中状态
+            const targetRadio = document.querySelector(`input[name="planFilter"][value="${planId}"]`);
+            if (targetRadio && !targetRadio.checked) {
+                targetRadio.checked = true;
+            }
+
+            // 2. 筛选卡片显隐
+            const activeArts = TRAINING_PLANS[planId].arts;
+            const sections = document.querySelectorAll('.art-section');
+            let firstVisibleSec = null;
+
+            sections.forEach(sec => {
+                const isVisible = planId === 'all' || activeArts.includes(sec.id);
+                sec.style.display = isVisible ? '' : 'none';
+                if (isVisible && !firstVisibleSec) {
+                    firstVisibleSec = sec;
+                }
+            });
+
+            // 3. 同步单个姿势 Tab 状态：当前计划内的保持清晰，计划外的微透淡出
+            const navTabs = document.querySelectorAll('.tab-btn');
+            navTabs.forEach(tab => {
+                const artId = tab.getAttribute('data-art-id');
+                const isInPlan = planId === 'all' || activeArts.includes(artId);
+                tab.classList.toggle('tab-dimmed', !isInPlan);
+            });
+
+            // 4. 若主动选择计划（非切回全部），平滑滚动至该计划的第一个动作
+            if (shouldScrollToFirst && firstVisibleSec && planId !== 'all') {
+                firstVisibleSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // 绑定计划单选切换事件
+        function setupPlanFilter() {
+            const radioInputs = document.querySelectorAll('input[name="planFilter"]');
+            radioInputs.forEach(input => {
+                input.addEventListener('change', (e) => {
+                    setPlanFilter(e.target.value, true);
+                });
+            });
+        }
+
         // 渲染页面
         function renderPage() {
             const navTabs = document.getElementById('navTabs');
@@ -1166,10 +1351,25 @@
                 tabBtn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
                 tabBtn.href = `#${art.id}`;
                 tabBtn.id = `tab-${art.id}`;
+                tabBtn.setAttribute('data-art-id', art.id);
                 tabBtn.innerHTML = `
                     <span>${art.emoji} ${art.name}</span>
                     <span class="tab-step-tag">第${targetLevel}式</span>
                 `;
+
+                // 点击单个姿势 Tab：单选按钮切回全部，并平滑定位到对应锚点卡片
+                tabBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (currentPlanId !== 'all') {
+                        setPlanFilter('all');
+                    }
+                    const targetSection = document.getElementById(art.id);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        history.replaceState(null, '', `#${art.id}`);
+                    }
+                });
+
                 navTabs.appendChild(tabBtn);
 
                 // 2. 生成对应卡片
@@ -1234,19 +1434,19 @@
                                     <div class="standards-header">训练标准与进阶目标</div>
                                     <div class="standards-grid">
                                         <div class="standard-box beginner">
-                                            <span class="standard-tier-label">初级标准</span>
-                                            <span class="standard-reps">${currentStepData.beginner}</span>
-                                            <span class="standard-sub">入门掌握</span>
+                                             <span class="standard-tier-label">初级标准</span>
+                                             <span class="standard-reps">${currentStepData.beginner}</span>
+                                             <span class="standard-sub">入门掌握</span>
                                         </div>
                                         <div class="standard-box intermediate">
-                                            <span class="standard-tier-label">中级标准</span>
-                                            <span class="standard-reps">${currentStepData.intermediate}</span>
-                                            <span class="standard-sub">稳固提升</span>
+                                             <span class="standard-tier-label">中级标准</span>
+                                             <span class="standard-reps">${currentStepData.intermediate}</span>
+                                             <span class="standard-sub">稳固提升</span>
                                         </div>
                                         <div class="standard-box progression active-target">
-                                            <span class="standard-tier-label">升级标准 ★</span>
-                                            <span class="standard-reps">${currentStepData.progression}</span>
-                                            <span class="standard-sub">进阶下一式</span>
+                                             <span class="standard-tier-label">升级标准 ★</span>
+                                             <span class="standard-reps">${currentStepData.progression}</span>
+                                             <span class="standard-sub">进阶下一式</span>
                                         </div>
                                     </div>
                                 </div>
@@ -1266,10 +1466,10 @@
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
+                    if (entry.isIntersecting && entry.target.style.display !== 'none' && entry.target.offsetParent !== null) {
                         const activeId = entry.target.id;
                         navTabs.forEach((tab) => {
-                            const isMatch = tab.getAttribute('href') === `#${activeId}`;
+                            const isMatch = tab.getAttribute('data-art-id') === activeId;
                             tab.classList.toggle('active', isMatch);
                             if (isMatch) {
                                 tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
@@ -1287,6 +1487,7 @@
         // 初始化
         document.addEventListener('DOMContentLoaded', () => {
             renderPage();
+            setupPlanFilter();
             setupScrollSpy();
         });
     </script>
