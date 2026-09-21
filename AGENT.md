@@ -36,6 +36,8 @@ This document serves as the single source of truth for AI agents (and human cont
 │   └── update_dividends.py  # Python script (zero dependencies) fetching Yahoo Finance data
 ├── market/
 │   └── index.html      # JEIP & JEQP Dividend Monitor (monthly payout stats, history & TradingView charts)
+├── gym/
+│   └── index.html      # Convict Conditioning Six Arts Tracker (囚徒健身六艺十式个人级别追踪)
 ├── py/
 │   └── index.html      # In-browser Python REPL running on Brython
 └── *.svg, *.png, *.jpg # Asset logos (Google, DoorDash, Edinburgh, York, Nankai, QR code, etc.)
@@ -57,6 +59,7 @@ This document serves as the single source of truth for AI agents (and human cont
 
 3. **Autonomous Sub-Applications**:
    - `/market`: JEIP & JEQP Dividend Monitor (clean sans-serif dashboard, high-density monthly distribution tracker and TradingView widgets).
+   - `/gym`: Convict Conditioning Six Arts Tracker (mobile-first calisthenics progression dashboard with sticky tab nav).
    - `/py`: Client-side Python REPL powered by Brython.
    - `/resume` & `/resume.html`: Dual redirection handlers pointing directly to `/resume.pdf`.
 
@@ -99,12 +102,12 @@ This document serves as the single source of truth for AI agents (and human cont
 - Verify that `resume.html` and `resume/index.html` continue to redirect properly to `resume.pdf`.
 
 ### Local Previewing
-Since this is a pure static site, run any lightweight local server from the repository root:
+Run the custom zero-dependency local dev server (simulates GitHub Pages routing, clean URLs, disables caching, and supports instant Live-Reload on file changes):
 ```bash
-# Python 3
-python -m http.server 8000
+# Recommended: GitHub Pages simulation with Live-Reload and zero-cache
+python scripts/serve.py
 
-# Node (npx)
-npx serve .
+# Or run with custom port:
+python scripts/serve.py 8080
 ```
-Open `http://localhost:8000` to preview.
+Open `http://localhost:8000` to preview. Any edits to HTML/CSS/JS files on disk will automatically reload the browser without restarting the server.

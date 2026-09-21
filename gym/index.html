@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>六艺十式 · 徒手健身追踪</title>
+    <meta name="description" content="《囚徒健身》六艺十式个人进度追踪：俯卧撑、深蹲、引体向上、举腿、桥、倒立撑。">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💪</text></svg>">
+    <style>
+        :root {
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-main: #111827;
+            --text-sub: #4b5563;
+            --text-muted: #9ca3af;
+            --border: #e5e7eb;
+            --border-highlight: #d1d5db;
+            --accent: #2563eb;
+            --accent-light: #eff6ff;
+            --accent-border: rgba(37, 99, 235, 0.2);
+            --green: #10b981;
+            --green-light: #ecfdf5;
+            --orange: #f59e0b;
+            --orange-light: #fffbeb;
+            --purple: #7c3aed;
+            --purple-light: #f5f3ff;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+            --radius-xl: 14px;
+            --radius-md: 8px;
+            --radius-sm: 5px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-variant-numeric: tabular-nums;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.5;
+            padding-bottom: 60px;
+        }
+
+        /* 顶部悬浮导航栏 */
+        .top-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 8px 16px 0;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 6px;
+        }
+
+        .brand-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-main);
+        }
+
+        /* 横向可滑动 Tab 容器 */
+        .tabs-scroller {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 4px 0 8px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .tabs-scroller::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-btn {
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-sub);
+            text-decoration: none;
+            border-radius: 20px;
+            background: var(--bg-color);
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            user-select: none;
+            flex-shrink: 0;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-main);
+            background: #e5e7eb;
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+            background: var(--accent-light);
+            border-color: var(--accent-border);
+        }
+
+        .tab-step-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            opacity: 0.85;
+            background: rgba(0, 0, 0, 0.06);
+            padding: 1px 6px;
+            border-radius: 10px;
+        }
+
+        .tab-btn.active .tab-step-tag {
+            background: rgba(37, 99, 235, 0.15);
+            color: var(--accent);
+        }
+
+        /* 主体布局 */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* 每个艺的独立区块 */
+        .art-section {
+            scroll-margin-top: 100px;
+        }
+
+        .art-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .art-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        /* 卡片头部 */
+        .card-header {
+            padding: 16px 20px 12px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .art-badge-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .art-emoji {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+
+        .art-name {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        .current-step-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            background: var(--accent-light);
+            color: var(--accent);
+            border: 1px solid var(--accent-border);
+        }
+
+        .step-title {
+            width: 100%;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-top: 4px;
+        }
+
+        /* 卡片主体：左右/上下响应式分栏 */
+        .card-body {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 16px;
+            padding: 18px 20px;
+        }
+
+        @media (max-width: 680px) {
+            .card-body {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                padding: 14px 16px;
+            }
+        }
+
+        /* 动作示范视觉展示区 */
+        .demo-visual-wrap {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }
+
+        .demo-visual-wrap img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .demo-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
+            text-align: center;
+            color: var(--text-muted);
+            gap: 8px;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+        }
+
+        .demo-placeholder-icon {
+            font-size: 2.6rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+        }
+
+        .demo-placeholder-text {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        .demo-placeholder-sub {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+        }
+
+        /* 动作说明与指标区 */
+        .details-col {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            justify-content: space-between;
+        }
+
+        .instruction-box {
+            font-size: 0.92rem;
+            color: var(--text-sub);
+            line-height: 1.65;
+            background: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 12px 14px;
+        }
+
+        .instruction-box strong {
+            color: var(--text-main);
+        }
+
+        /* 三档目标标准卡 */
+        .standards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .standards-header {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+        }
+
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .standard-box {
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 8px 10px;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .standard-box.beginner {
+            border-color: #d1d5db;
+            background: #fafafa;
+        }
+
+        .standard-box.intermediate {
+            border-color: #fde68a;
+            background: var(--orange-light);
+        }
+
+        .standard-box.progression {
+            border-color: #a7f3d0;
+            background: var(--green-light);
+        }
+
+        .standard-box.active-target {
+            box-shadow: 0 0 0 2px var(--green);
+        }
+
+        .standard-tier-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .standard-box.beginner .standard-tier-label {
+            color: var(--text-muted);
+        }
+
+        .standard-box.intermediate .standard-tier-label {
+            color: #b45309;
+        }
+
+        .standard-box.progression .standard-tier-label {
+            color: #047857;
+        }
+
+        .standard-reps {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        .standard-box.progression .standard-reps {
+            color: #065f46;
+        }
+
+        .standard-sub {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+        }
+
+        /* 页面底部 */
+        footer {
+            max-width: 900px;
+            margin: 24px auto 0;
+            padding: 16px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        footer a {
+            color: var(--text-sub);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        /* 动作切换提示条 */
+        .config-tip {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            background: #fafafa;
+            border-radius: var(--radius-sm);
+            padding: 6px 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 顶部悬浮导航与 Tab -->
+    <header class="top-navbar">
+        <div class="nav-inner">
+            <div class="header-brand">
+                <div class="brand-title">
+                    <span>💪 六艺十式</span>
+                    <span style="font-size: 0.78rem; font-weight: 500; color: var(--text-muted);">· 囚徒健身</span>
+                </div>
+            </div>
+
+            <nav class="tabs-scroller" id="navTabs" aria-label="六艺导航">
+                <!-- 由 JS 动态渲染 Tab 按钮 -->
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主展示区 -->
+    <main id="artsContainer">
+        <!-- 由 JS 根据当前级别渲染各艺卡片 -->
+    </main>
+
+    <footer>
+        <div class="config-tip">
+            💡 升级提示：各艺当前练到第几式直接在页面源码顶部 <code>CURRENT_LEVELS</code> 对应修改即可。
+        </div>
+        <div>
+            &copy; Xuyang Kang &middot; <a href="https://xuyang.me">xuyang.me</a> &middot; 基于保罗·威德《囚徒健身》
+        </div>
+    </footer>
+
+    <script>
+        /**
+         * ==========================================
+         * 🎯 个人当前进度配置 (修改这里即可升级！)
+         * 填写 1 ~ 10 代表该艺当前在练的式数
+         * ==========================================
+         */
+        const CURRENT_LEVELS = {
+            pushups: 5,      // 俯卧撑：第5式 标准全俯卧撑
+            squats: 5,       // 深蹲：第5式 标准全深蹲
+            pullups: 3,      // 引体向上：第3式 折刀引体 (踏椅辅助)
+            leg_raises: 1,   // 举腿：第1式 坐姿屈膝
+            bridges: 1,      // 桥：第1式 短桥
+            handstands: 1    // 倒立撑：第1式 哑铃推举
+        };
+
+        /**
+         * 完整六艺十式数据库
+         */
+        const ARTS_DATA = [
+            {
+                id: 'pushups',
+                name: '俯卧撑',
+                en: 'Push-ups',
+                emoji: '🧎',
+                steps: [
+                    {
+                        step: 1,
+                        name: '墙壁俯卧撑',
+                        desc: '面对墙壁站立，双臂平推墙面。核心收紧，慢起慢落（下压2秒，停顿1秒，推起2秒）。重点打磨肩肘腕关节韧带与稳定肌群。',
+                        beginner: '1 × 10',
+                        intermediate: '2 × 25',
+                        progression: '3 × 50',
+                        img: 'https://gymvisual.com/img/p/3/7/5/5/1/37551.gif'
+                    },
+                    {
+                        step: 2,
+                        name: '上斜俯卧撑',
+                        desc: '双手撑在牢固桌沿或长椅边缘（身体倾斜约45度）。身体呈直线，胸口贴近支撑物后推起，循序渐进适应自重负荷。',
+                        beginner: '1 × 10',
+                        intermediate: '2 × 20',
+                        progression: '3 × 40',
+                        img: ''
+                    },
+                    {
+                        step: 3,
+                        name: '跪姿俯卧撑',
+                        desc: '双膝着地，双脚交叉悬空或放平，身体从头到膝盖保持一条直线。重点训练胸肌与三头肌的初级发力感知。',
+                        beginner: '1 × 10',
+                        intermediate: '2 × 15',
+                        progression: '3 × 30',
+                        img: 'https://gymvisual.com/img/p/5/8/7/6/5876.gif'
+                    },
+                    {
+                        step: 4,
+                        name: '半程俯卧撑',
+                        desc: '标准俯卧撑姿势，在胸下方放置拳头或篮球，下落至胸部轻触标记物（约下落一半）后撑起，为全幅动作积累肌力。',
+                        beginner: '1 × 8',
+                        intermediate: '2 × 12',
+                        progression: '2 × 25',
+                        img: ''
+                    },
+                    {
+                        step: 5,
+                        name: '标准全俯卧撑',
+                        desc: '双手与肩同宽，躯干笔直如钢板，肘部微内收（呈箭头形）。胸口下沉至距地面一拳距离后平稳推起，完成完整幅度。',
+                        beginner: '1 × 5',
+                        intermediate: '2 × 10',
+                        progression: '2 × 20',
+                        img: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Liegestuetz02_ani_fcm.gif'
+                    },
+                    {
+                        step: 6,
+                        name: '窄距俯卧撑',
+                        desc: '双手食指与拇指相对靠近（钻石距），集中刺激肱三头肌内侧及胸肌中缝，极度考验手臂推力。',
+                        beginner: '1 × 5',
+                        intermediate: '2 × 10',
+                        progression: '2 × 20',
+                        img: ''
+                    },
+                    {
+                        step: 7,
+                        name: '偏重俯卧撑',
+                        desc: '一只手撑地，另一只手撑在篮球或厚书上；主要承重集中于主发力侧手臂，逐步过渡至单侧力量强化。',
+                        beginner: '1 × 5 (每侧)',
+                        intermediate: '2 × 10 (每侧)',
+                        progression: '2 × 20 (每侧)',
+                        img: ''
+                    },
+                    {
+                        step: 8,
+                        name: '半程单手俯卧撑',
+                        desc: '单手撑地，双脚略分开以保持平衡。胸部下方垫篮球控制幅度，缓慢下落至触碰后全力单臂推起。',
+                        beginner: '1 × 5 (每侧)',
+                        intermediate: '2 × 10 (每侧)',
+                        progression: '2 × 20 (每侧)',
+                        img: ''
+                    },
+                    {
+                        step: 9,
+                        name: '杠杆俯卧撑',
+                        desc: '主发力手正常撑地，辅助手向体侧完全伸直按在篮球上辅助平衡，几乎全由单臂主导完成推举。',
+                        beginner: '1 × 5 (每侧)',
+                        intermediate: '2 × 10 (每侧)',
+                        progression: '2 × 20 (每侧)',
+                        img: ''
+                    },
+                    {
+                        step: 10,
+                        name: '终极单手俯卧撑',
+                        desc: '终极十式：纯单手支撑，另一手臂背在身后，身体控制不严重倾斜，慢速完成深沉的单手推压。',
+                        beginner: '1 × 5 (每侧)',
+                        intermediate: '2 × 10 (每侧)',
+                        progression: '1 × 100 (每侧)',
+                        img: ''
+                    }
+                ]
+            },
+            {
+                id: 'squats',
+                name: '深蹲',
+                en: 'Squats',
+                emoji: '🦵',
+                steps: [
+                    {
+                        step: 1,
+                        name: '肩倒立深蹲',
+                        desc: '仰卧于地，双腿向上伸展由肩部倒立支撑（双手扶髋），模仿深蹲轨迹屈膝伸膝，对膝盖零压力并激活下肢关节。',
+                        beginner: '1 × 10',
+                        intermediate: '2 × 25',
+                        progression: '3 × 50',
+                        img: ''
+                    },
+                    {
+                        step: 2,
+                        name: '折刀深蹲',
+                        desc: '面对床沿或茶几站立，双手支撑部分上半身体重，进行深蹲。借助手臂助力降低腿部初期负荷。',
+                        beginner: '1 × 10',
+                        intermediate: '2 × 20',
+                        progression: '3 × 40',
+                        img: ''
+                    },
+                    {
+                        step: 3,
+                        name: '支撑深蹲',
+                        desc: '双手抓握门框或牢固栏杆，进行全幅度深蹲。双手仅在上推乏力时轻度借力，保持背部正直。',
+                        beginner: '1 × 10',
+                        intermediate: '2 × 15',
+                        progression: '3 × 30',
+                        img: ''
+                    },
+                    {
+                        step: 4,
+                        name: '半程深蹲',
+                        desc: '徒手站立，大腿下蹲至与地面平行的一半位置（约45度）。注意膝盖对准脚尖，不产生内扣。',
+                        beginner: '1 × 8',
+                        intermediate: '2 × 35',
+                        progression: '2 × 50',
+                        img: ''
+                    },
+                    {
+                        step: 5,
+                        name: '标准全深蹲',
+                        desc: '双脚略宽于肩，脚尖外展。平稳下蹲至大腿后侧触及小腿（全幅度），脚跟全程着地，躯干保持稳定上挺。',
+                        beginner: '1 × 5',
+                        intermediate: '2 × 10',
+                        progression: '2 × 30',
+                        img: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Squats_01.gif'
+                    },
+                    {
+                        step: 6,
+                        name: '窄距深蹲',
+                        desc: '双脚脚跟并拢站立，全幅度下蹲。极大挑战脚踝活动度、股四头肌外侧与膝关节柔韧性。',
+                        beginner: '1 × 5',
+                        intermediate: '2 × 10',
+                        progression: '2 × 20',
+                        img: ''
+                    },
+                    {
+                        step: 7,
+                        name: '偏重深蹲',
+                        desc: '一脚平踏地面，另一脚踩在前方篮球上；重心完全压在主力腿上完成蹲起，分化左右单腿力量。',
+                        beginner: '1 × 5 (每侧)',
+                        intermediate: '2 × 10 (每侧)',
+                        progression: '2 × 20 (每侧)',
+                        img: ''
+                    },
+                    {
+                        step: 8,
+                        name: '半程单腿深蹲',
+                        desc: '悬空一腿向前伸展，主力腿下蹲至半程（座椅高度），利用臀大肌与大腿前侧发力站起，不借助回弹。',
+                        beginner: '1 × 5 (每侧)',
+                        intermediate: '2 × 10 (每侧)',
+                        progression: '2 × 20 (每侧)',
+                        img: ''
+                    },
+                    {
+                        step: 9,
+                        name: '辅助单腿深蹲',
+                        desc: '手扶篮球或桌腿提供微量平衡辅助，另一腿前平举，主力腿全幅度下蹲到底后单腿站起。',
+                        beginner: '1 × 5 (每侧)',
+                        intermediate: '2 × 10 (每侧)',
+                        progression: '2 × 20 (每侧)',
+                        img: ''
+                    },
+                    {
+                        step: 10,
+                        name: '终极单腿深蹲 (手枪深蹲)',
+                        desc: '终极十式：无任何借力，非支撑腿向前笔直伸展，主力腿慢速下蹲到底后纯靠腿力蹬起，展现神级平衡与腿力。',
+                        beginner: '1 × 5 (每侧)',
+                        intermediate: '2 × 10 (每侧)',
+                        progression: '2 × 20 (每侧)',
+                        img: ''
+                    }
+                ]
+            },
+            {
+                id: 'pullups',
+                name: '引体向上',
+                en: 'Pull-ups',
+                emoji: '🧗',
+                steps: [
+                    {
+                        step: 1,
+                        name: '垂直引体',
+                        desc: '双手抓握门框或垂直立柱，双脚贴地站立，通过背阔肌收缩将胸口向门框拉近。适合零基础激活上背肌群。',
+                        beginner: '1 × 10',
+                        intermediate: '2 × 20',
+                        progression: '3 × 40',
+                        img: ''
+                    },
+                    {
+                        step: 2,
+                        name: '水平引体 (澳式引体)',
+                        desc: '在齐腰高的单杠或结实桌下，仰卧脚跟着地，双手拉住横杆将胸部拉向杠面，强化肩胛后收能力。',
+                        beginner: '1 × 10',
+                        intermediate: '2 × 20',
+                        progression: '3 × 30',
+                        img: ''
+                    },
+                    {
+                        step: 3,
+                        name: '折刀引体 (踏椅辅助引体)',
+                        desc: '双手抓握单杠，双脚踩在前方或下方的椅子/凳子上。双腿屈伸配合提供适度上蹬助力（类似折刀合拢），上半身背阔肌与手臂主导将下巴拉过单杠。随着背部力量增强，逐渐减少腿部借力，是通往完全悬空引体最关键的过渡动作。',
+                        beginner: '1 × 10',
+                        intermediate: '2 × 15',
+                        progression: '3 × 25',
+                        img: 'https://upload.wikimedia.org/wikipedia/commons/4/40/Pullup.gif'
+                    },
+                    {
+                        step: 4,
+                        name: '半程引体向上',
+                        desc: '双脚完全离地悬垂，从肘部弯曲90度位置开始向上拉至下巴过杠，然后回落至90度，积累肘屈肌与背阔耐力。',
+                        beginner: '1 × 8',
+                        intermediate: '2 × 11',
+                        progression: '2 × 20',
+                        img: ''
+                    },
+                    {
+                        step: 5,
+                        name: '标准引体向上',
+                        desc: '双手正握或反握，从肩胛完全沉落悬垂起步，不借摆动借力，平稳拉到下巴超过单杠横面，慢速下放。',
+                        beginner: '1 × 5',
+                        intermediate: '2 × 10',
+                        progression: '2 × 15',
+                        img: 'https://gymvisual.com/img/p/3/0/0/5/9/30059.gif'
+                    },
+                    {
+                        step: 6,
+                        name: '窄距引体向上',
+                        desc: '双手间距缩窄至两拳以内，更多孤立背阔肌下缘及肱二头肌，要求更强的握力和臂力输出。',
+                        beginner: '1 × 5',
+                        intermediate: '2 × 10',
+                        progression: '2 × 15',
+                        img: ''
+                    },
+                    {
+                        step: 7,
+                        name: '偏重引体向上',
+                        desc: '一手正常握杠，另一手抓握挂在单杠上的毛巾（位置较低），大部分拉力由握杠手承受。',
+                        beginner: '1 × 5 (每侧)',
+                        intermediate: '2 × 9 (每侧)',
+                        progression: '2 × 14 (每侧)',
+                        img: ''
+                    },
+                    {
+                        step: 8,
+                        name: '半程单手引体',
+                        desc: '单手握杠，另一手扶腕，从肘屈90度拉到下巴过杠，体验单侧上肢负荷的极限拉力。',
+                        beginner: '1 × 4 (每侧)',
+                        intermediate: '2 × 8 (每侧)',
+                        progression: '2 × 11 (每侧)',
+                        img: ''
+                    },
+                    {
+                        step: 9,
+                        name: '辅助单手引体',
+                        desc: '单手握单杠，另一手仅抓毛巾中下端提供轻微平衡支撑，几乎全靠单臂将身体拉起。',
+                        beginner: '1 × 4 (每侧)',
+                        intermediate: '2 × 7 (每侧)',
+                        progression: '2 × 10 (每侧)',
+                        img: ''
+                    },
+                    {
+                        step: 10,
+                        name: '终极单手引体向上',
+                        desc: '终极十式：真正的单手悬垂，无晃动无蹬腿，纯粹依靠单臂背阔与二头肌将整个人拉至下巴过杠。',
+                        beginner: '1 × 1 (每侧)',
+                        intermediate: '2 × 3 (每侧)',
+                        progression: '1 × 6 (每侧)',
+                        img: ''
+                    }
+                ]
+            },
+            {
+                id: 'leg_raises',
+                name: '举腿',
+                en: 'Leg Raises',
+                emoji: '🤸',
+                steps: [
+                    {
+                        step: 1,
+                        name: '坐姿屈膝',
+                        desc: '坐在床沿或长椅边，双手扶沿身体微后倾，双膝向胸部聚拢紧缩，然后缓慢向前伸展，唤醒深层腹直肌。',
+                        beginner: '1 × 10',
+                        intermediate: '2 × 25',
+                        progression: '3 × 40',
+                        img: 'https://upload.wikimedia.org/wikipedia/commons/3/39/SeatedLegRaise.gif'
+                    },
+                    {
+                        step: 2,
+                        name: '平卧屈膝',
+                        desc: '仰卧于垫面，双手置于身体两侧或臀下，屈膝将双腿提向胸部，脚跟不触地连续慢速进行。',
+                        beginner: '1 × 10',
+                        intermediate: '2 × 20',
+                        progression: '3 × 35',
+                        img: ''
+                    },
+                    {
+                        step: 3,
+                        name: '平卧曲举',
+                        desc: '仰卧，双膝保持钝角（约135度），锁定膝关节角度抬高双腿至髋关节成90度，提升杠杆力臂。',
+                        beginner: '1 × 10',
+                        intermediate: '2 × 15',
+                        progression: '3 × 30',
+                        img: ''
+                    },
+                    {
+                        step: 4,
+                        name: '平卧蛙举',
+                        desc: '仰卧双腿伸直抬起，在最高点屈膝收向腹部再蹬直复原，结合屈伸与直举过渡，加固核心耐力。',
+                        beginner: '1 × 8',
+                        intermediate: '2 × 15',
+                        progression: '3 × 25',
+                        img: ''
+                    },
+                    {
+                        step: 5,
+                        name: '平卧直举',
+                        desc: '双腿完全伸直锁定，靠下腹力量将双腿举至与地面垂直（90度），下放时后腰死死贴紧地面不拱起。',
+                        beginner: '1 × 5',
+                        intermediate: '2 × 10',
+                        progression: '2 × 20',
+                        img: ''
+                    },
+                    {
+                        step: 6,
+                        name: '悬垂屈膝',
+                        desc: '双手悬挂在单杠上，身体保持竖直不前后摆荡，屈膝将双膝缓慢抬至胸腹高度，完成悬垂起步。',
+                        beginner: '1 × 5',
+                        intermediate: '2 × 10',
+                        progression: '2 × 15',
+                        img: ''
+                    },
+                    {
+                        step: 7,
+                        name: '悬垂曲举',
+                        desc: '悬挂单杠，双腿微屈（保持大角度），平稳将双腿抬高至大腿与躯干垂直，强化悬垂抓握与腹部控制。',
+                        beginner: '1 × 5',
+                        intermediate: '2 × 10',
+                        progression: '2 × 15',
+                        img: ''
+                    },
+                    {
+                        step: 8,
+                        name: '悬垂蛙举',
+                        desc: '悬垂状态下直腿抬起、屈膝顶峰收缩、再蹬出慢放，强化核心动态收缩与髂腰肌耐受力。',
+                        beginner: '1 × 5',
+                        intermediate: '2 × 10',
+                        progression: '2 × 15',
+                        img: ''
+                    },
+                    {
+                        step: 9,
+                        name: '悬垂半程直举',
+                        desc: '悬垂单杠，双腿完全伸直并拢，慢速抬起至与地面平行（L型坐姿）后慢放，核心承受强大杠杆力矩。',
+                        beginner: '1 × 3',
+                        intermediate: '2 × 5',
+                        progression: '2 × 7',
+                        img: ''
+                    },
+                    {
+                        step: 10,
+                        name: '终极悬垂直举 (悬垂脚触杠)',
+                        desc: '终极十式：双腿笔直并拢，无任何摆动借力，直接从悬垂位置画弧上抬，直至脚趾轻触单杠横杆。',
+                        beginner: '1 × 5',
+                        intermediate: '2 × 10',
+                        progression: '2 × 30',
+                        img: ''
+                    }
+                ]
+            },
+            {
+                id: 'bridges',
+                name: '桥',
+                en: 'Bridges',
+                emoji: '🧘',
+                steps: [
+                    {
+                        step: 1,
+                        name: '短桥 (臀桥)',
+                        desc: '仰卧屈膝，双脚踩地，双手置于身侧。主要依靠臀肌和腘绳肌发力将臀部顶起至大腿与躯干成一直线。',
+                        beginner: '1 × 10',
+                        intermediate: '2 × 25',
+                        progression: '3 × 50',
+                        img: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Glute-bridge.png'
+                    },
+                    {
+                        step: 2,
+                        name: '直桥',
+                        desc: '坐在地上双腿伸直，双手支撑在臀部后方，双手发力将躯干与双腿顶起成一条直线，强化脊柱伸肌与后链。',
+                        beginner: '1 × 10',
+                        intermediate: '2 × 20',
+                        progression: '3 × 40',
+                        img: ''
+                    },
+                    {
+                        step: 3,
+                        name: '角度桥',
+                        desc: '仰卧，双脚垫高（置于床或椅面），双手按在头侧推起半桥，逐步增加脊柱后屈幅度。',
+                        beginner: '1 × 8',
+                        intermediate: '2 × 15',
+                        progression: '3 × 30',
+                        img: ''
+                    },
+                    {
+                        step: 4,
+                        name: '头桥',
+                        desc: '仰卧，双手撑在头部两侧推起身体，使头顶轻触地面支撑部分重量，让颈椎及背部深层小肌群建立承重能力。',
+                        beginner: '1 × 8',
+                        intermediate: '2 × 15',
+                        progression: '2 × 25',
+                        img: ''
+                    },
+                    {
+                        step: 5,
+                        name: '半桥',
+                        desc: '背部垫一个篮球或泡沫轴作为支点，双手下推将背部顶离球体，体会完全拱起的弧度感受。',
+                        beginner: '1 × 8',
+                        intermediate: '2 × 15',
+                        progression: '2 × 20',
+                        img: ''
+                    },
+                    {
+                        step: 6,
+                        name: '标准全桥',
+                        desc: '仰卧双手反手撑于耳旁，四肢同时发力将背部高高顶起成优美弓形，头部完全悬空，胸腔充分打开。',
+                        beginner: '1 × 6',
+                        intermediate: '2 × 10',
+                        progression: '2 × 15',
+                        img: ''
+                    },
+                    {
+                        step: 7,
+                        name: '下行壁行桥',
+                        desc: '背对墙壁约一步距离站立，双手向后摸墙，一步一步沿墙面往下“走”，直至触底达到桥式。',
+                        beginner: '1 × 3',
+                        intermediate: '2 × 6',
+                        progression: '2 × 10',
+                        img: ''
+                    },
+                    {
+                        step: 8,
+                        name: '上行壁行桥',
+                        desc: '从地面标准全桥姿势起步，双手推离地面摸向墙壁，反向一步一步沿墙面向上走，直至回到站立姿态。',
+                        beginner: '1 × 2',
+                        intermediate: '2 × 4',
+                        progression: '2 × 8',
+                        img: ''
+                    },
+                    {
+                        step: 9,
+                        name: '合桥 (合壁下桥)',
+                        desc: '站立姿态向后直接下弯成桥，在接近地面处双手轻轻着地，极度考验腰腹柔韧性与后仰心理安全感。',
+                        beginner: '1 × 1',
+                        intermediate: '2 × 3',
+                        progression: '2 × 6',
+                        img: ''
+                    },
+                    {
+                        step: 10,
+                        name: '终极铁板桥 (站立到站立)',
+                        desc: '终极十式：由站立姿势顺畅后弯下潜至全桥，略作停顿后凭借强大的脊柱核心弹力直接蹬回站立！',
+                        beginner: '1 × 1',
+                        intermediate: '2 × 2',
+                        progression: '1 × 5',
+                        img: ''
+                    }
+                ]
+            },
+            {
+                id: 'handstands',
+                name: '倒立撑',
+                en: 'Handstand Push-ups',
+                emoji: '🤸‍♂️',
+                steps: [
+                    {
+                        step: 1,
+                        name: '哑铃推举 (改良第1式)',
+                        desc: '【针对原著头倒立的反人类缺陷进行改良】：坐姿或站姿双臂持哑铃，挺胸收腹，从肩旁推举至手臂完全伸直，安全稳健夯实三角肌与上胸推力基础。',
+                        beginner: '1 × 10 (轻重量)',
+                        intermediate: '2 × 15 (适中重量)',
+                        progression: '3 × 20 (力量升级)',
+                        img: 'https://upload.wikimedia.org/wikipedia/commons/1/15/Dumbbell-shoulder-press-1.png'
+                    },
+                    {
+                        step: 2,
+                        name: '乌鸦式 (瑜伽平衡)',
+                        desc: '双手撑地，双膝顶在两手肘窝外侧，身体前倾将双脚抬离地面，依靠手臂与核心平衡支撑全身（按秒计时）。',
+                        beginner: '10 秒静态保持',
+                        intermediate: '30 秒静态保持',
+                        progression: '1 分钟静态保持',
+                        img: ''
+                    },
+                    {
+                        step: 3,
+                        name: '靠墙倒立',
+                        desc: '双手距墙约20厘米撑地，蹬地起倒立，脚跟靠在墙面上，全身绷紧成一条直线，打磨肩部抗疲劳耐受力。',
+                        beginner: '30 秒静态保持',
+                        intermediate: '1 分钟静态保持',
+                        progression: '2 分钟静态保持',
+                        img: ''
+                    },
+                    {
+                        step: 4,
+                        name: '半程倒立撑',
+                        desc: '靠墙倒立，头下垫两个枕头或厚砖，缓慢屈肘下沉直至头顶轻触标记物（约一半行程），随后全力推直。',
+                        beginner: '1 × 5',
+                        intermediate: '2 × 10',
+                        progression: '2 × 20',
+                        img: ''
+                    },
+                    {
+                        step: 5,
+                        name: '标准靠墙倒立撑',
+                        desc: '靠墙倒立，慢速下沉直至头顶轻轻贴地（亲吻地面），不借助反弹，纯粹依靠肩部和三头肌爆发力推至手臂完全锁死。',
+                        beginner: '1 × 5',
+                        intermediate: '2 × 10',
+                        progression: '2 × 15',
+                        img: ''
+                    },
+                    {
+                        step: 6,
+                        name: '窄距倒立撑',
+                        desc: '双手相距两拳以内靠墙倒立推撑，对肱三头肌外侧头和肩前束施加更严苛的力线考验。',
+                        beginner: '1 × 5',
+                        intermediate: '2 × 9',
+                        progression: '2 × 12',
+                        img: ''
+                    },
+                    {
+                        step: 7,
+                        name: '偏重倒立撑',
+                        desc: '一手正常撑地，另一手下垫厚书或瑜伽砖产生高度差；大部分自重倾斜在主手完成深沉下潜与推起。',
+                        beginner: '1 × 5 (每侧)',
+                        intermediate: '2 × 8 (每侧)',
+                        progression: '2 × 10 (每侧)',
+                        img: ''
+                    },
+                    {
+                        step: 8,
+                        name: '半程单手倒立撑',
+                        desc: '仅单臂撑地靠墙，另一手扶在身旁，下沉至半程深度并推起，挑战人类单肩负重的力量巅峰。',
+                        beginner: '1 × 4 (每侧)',
+                        intermediate: '2 × 6 (每侧)',
+                        progression: '2 × 8 (每侧)',
+                        img: ''
+                    },
+                    {
+                        step: 9,
+                        name: '杠杆倒立撑',
+                        desc: '单手主力支撑，副手侧向伸出仅用手指轻抚墙壁维系微小平衡，单侧肩上推力近乎完全承重。',
+                        beginner: '1 × 3 (每侧)',
+                        intermediate: '2 × 4 (每侧)',
+                        progression: '2 × 6 (每侧)',
+                        img: ''
+                    },
+                    {
+                        step: 10,
+                        name: '终极单手倒立撑',
+                        desc: '终极十式：神迹一般的单手倒立撑！单手稳固撑地，身体慢放到底再不可思议地单臂推起，徒手健身的最高王冠。',
+                        beginner: '1 × 1 (每侧)',
+                        intermediate: '2 × 2 (每侧)',
+                        progression: '1 × 5 (每侧)',
+                        img: ''
+                    }
+                ]
+            }
+        ];
+
+        // 渲染页面
+        function renderPage() {
+            const navTabs = document.getElementById('navTabs');
+            const container = document.getElementById('artsContainer');
+
+            navTabs.innerHTML = '';
+            container.innerHTML = '';
+
+            ARTS_DATA.forEach((art, index) => {
+                const targetLevel = CURRENT_LEVELS[art.id] || 1;
+                // 获取当前式的具体数据 (索引为 level - 1)
+                const currentStepData = art.steps.find(s => s.step === targetLevel) || art.steps[0];
+
+                // 1. 生成 Tab 按钮
+                const tabBtn = document.createElement('a');
+                tabBtn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
+                tabBtn.href = `#${art.id}`;
+                tabBtn.id = `tab-${art.id}`;
+                tabBtn.innerHTML = `
+                    <span>${art.emoji} ${art.name}</span>
+                    <span class="tab-step-tag">第${targetLevel}式</span>
+                `;
+                navTabs.appendChild(tabBtn);
+
+                // 2. 生成对应卡片
+                const section = document.createElement('section');
+                section.className = 'art-section';
+                section.id = art.id;
+
+                // 示范图与占位图逻辑
+                let visualHtml = '';
+                if (currentStepData.img) {
+                    visualHtml = `
+                        <div class="demo-visual-wrap">
+                            <img src="${currentStepData.img}" alt="${currentStepData.name}" loading="lazy" 
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="demo-placeholder" style="display: none;">
+                                <div class="demo-placeholder-icon">${art.emoji}</div>
+                                <div class="demo-placeholder-text">${art.name} · 第${currentStepData.step}式</div>
+                                <div class="demo-placeholder-sub">${currentStepData.name}</div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    visualHtml = `
+                        <div class="demo-visual-wrap">
+                            <div class="demo-placeholder">
+                                <div class="demo-placeholder-icon">${art.emoji}</div>
+                                <div class="demo-placeholder-text">${art.name} · 第${currentStepData.step}式</div>
+                                <div class="demo-placeholder-sub">${currentStepData.name}</div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                section.innerHTML = `
+                    <article class="art-card">
+                        <header class="card-header">
+                            <div class="art-badge-row">
+                                <span class="art-emoji">${art.emoji}</span>
+                                <div>
+                                    <span class="art-name">${art.name}</span>
+                                    <span style="font-size:0.8rem; color:var(--text-muted); margin-left:4px;">${art.en}</span>
+                                </div>
+                            </div>
+                            <span class="current-step-badge">
+                                <span>🎯 当前级别</span>
+                                <span>第 ${currentStepData.step} 式 / 共 10 式</span>
+                            </span>
+                            <h2 class="step-title">${currentStepData.step}. ${currentStepData.name}</h2>
+                        </header>
+
+                        <div class="card-body">
+                            <!-- 示范展示区 -->
+                            ${visualHtml}
+
+                            <!-- 详情说明与三档标准 -->
+                            <div class="details-col">
+                                <div class="instruction-box">
+                                    <strong>动作要领：</strong>${currentStepData.desc}
+                                </div>
+
+                                <div class="standards-container">
+                                    <div class="standards-header">训练标准与进阶目标</div>
+                                    <div class="standards-grid">
+                                        <div class="standard-box beginner">
+                                            <span class="standard-tier-label">初级标准</span>
+                                            <span class="standard-reps">${currentStepData.beginner}</span>
+                                            <span class="standard-sub">入门掌握</span>
+                                        </div>
+                                        <div class="standard-box intermediate">
+                                            <span class="standard-tier-label">中级标准</span>
+                                            <span class="standard-reps">${currentStepData.intermediate}</span>
+                                            <span class="standard-sub">稳固提升</span>
+                                        </div>
+                                        <div class="standard-box progression active-target">
+                                            <span class="standard-tier-label">升级标准 ★</span>
+                                            <span class="standard-reps">${currentStepData.progression}</span>
+                                            <span class="standard-sub">进阶下一式</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                `;
+
+                container.appendChild(section);
+            });
+        }
+
+        // 导航滚动高亮与 Tab 点击交互
+        function setupScrollSpy() {
+            const sections = document.querySelectorAll('.art-section');
+            const navTabs = document.querySelectorAll('.tab-btn');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const activeId = entry.target.id;
+                        navTabs.forEach((tab) => {
+                            const isMatch = tab.getAttribute('href') === `#${activeId}`;
+                            tab.classList.toggle('active', isMatch);
+                            if (isMatch) {
+                                tab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                            }
+                        });
+                    }
+                });
+            }, {
+                rootMargin: '-20% 0px -70% 0px'
+            });
+
+            sections.forEach((s) => observer.observe(s));
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPage();
+            setupScrollSpy();
+        });
+    </script>
+</body>
+
+</html>
