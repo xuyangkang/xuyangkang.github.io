@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="240" rx="12" fill="url(#bgGrad)" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- Top Info Badge -->
+  <g transform="translate(16, 20)">
+    <rect width="70" height="22" rx="4" fill="#eff6ff" stroke="rgba(37,99,235,0.2)" stroke-width="1"/>
+    <text x="35" y="15" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="700" fill="#2563eb">第 6 式</text>
+    
+    <text x="78" y="16" font-family="-apple-system, system-ui, sans-serif" font-size="14" font-weight="800" fill="#0f172a">悬垂屈膝</text>
+    <text x="368" y="16" text-anchor="end" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b">🎯 悬垂握力 / 下腹收缩</text>
+  </g>
+
+  <!-- Floor / Ground Line -->
+  <line x1="30" y1="185" x2="370" y2="185" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+
+  <!-- Apparatus / Scene -->
+  <line x1="140" y1="55" x2="260" y2="55" stroke="#475569" stroke-width="6"/>
+
+  <!-- Figure Graphics (Start Pose & Finish Pose) -->
+  
+          <g stroke="#2563eb" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <circle cx="200" cy="85" r="10" fill="#2563eb"/>
+            <!-- Straight arms -->
+            <line x1="190" y1="55" x2="195" y2="90"/>
+            <line x1="210" y1="55" x2="205" y2="90"/>
+            <line x1="200" y1="95" x2="200" y2="140"/>
+            <!-- Knees tucked up -->
+            <polyline points="200,140 230,120 215,155"/>
+          </g>
+        
+
+  <!-- Trajectory / Motion Arrow -->
+  <path d="M 210 170 Q 240 160 230 130" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Bottom Technique Cue -->
+  <g transform="translate(200, 218)">
+    <rect x="-140" y="-14" width="280" height="22" rx="11" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" filter="drop-shadow(0 1px 2px rgba(0,0,0,0.04))"/>
+    <text x="0" y="1" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="11" font-weight="600" fill="#334155">💡 要领：悬挂单杠无晃动 · 屈膝缓慢抬至胸前顶峰收缩</text>
+  </g>
+</svg>
