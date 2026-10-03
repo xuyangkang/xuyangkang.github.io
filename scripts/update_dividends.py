@@ -59,18 +59,20 @@ def fetch_fund_data(ticker):
     }
 
 
-def build_table_rows(div_history, unit="p"):
-    rows = []
-    for item in div_history[:4]:
-        amount_str = f"{item['amount']:.2f} {unit}"
-        rows.append(
-            f"                            <tr>\n"
-            f"                                <td>{item['ex_date']}</td>\n"
-            f"                                <td>{item['pay_date']}</td>\n"
-            f"                                <td class=\"amount-col\">{amount_str}</td>\n"
-            f"                            </tr>"
+def build_history_items(div_history, unit="p"):
+    items = []
+    for item in div_history[:3]:
+        amt_str = f"{item['amount']:.2f} {unit}"
+        items.append(
+            f'                        <div class="history-item">\n'
+            f'                            <div class="history-meta-col">\n'
+            f'                                <span class="history-month">{item["month_str"]}</span>\n'
+            f'                                <span class="history-dates">除息 {item["ex_date"]} &middot; 到账 {item["pay_date"]}</span>\n'
+            f'                            </div>\n'
+            f'                            <span class="history-amount">{amt_str}</span>\n'
+            f'                        </div>'
         )
-    return "\n".join(rows)
+    return "\n".join(items)
 
 
 def replace_marker(content, marker_name, new_value):
@@ -93,25 +95,34 @@ def main():
 
     # Update JEIP
     jeip_yield_str = f"~{jeip['yield_pct']:.1f}%"
-    jeip_latest_amt = f"{jeip['latest']['amount']:.2f} <span style=\"font-size:0.8rem;font-weight:600;\">p</span>"
+    jeip_latest_amt = f"{jeip['latest']['amount']:.2f} <span class=\"metric-unit\">p</span>"
     jeip_latest_sub = f"{jeip['latest']['month_str']} 派息"
-    jeip_table_html = build_table_rows(jeip["history"], unit="p")
+    jeip_price_str = f"{jeip['price']:.2f} {jeip['currency']}"
+    jeip_history_html = build_history_items(jeip["history"], unit="p")
 
     content = replace_marker(content, "JEIP_YIELD", jeip_yield_str)
     content = replace_marker(content, "JEIP_LATEST", jeip_latest_amt)
     content = replace_marker(content, "JEIP_LATEST_SUB", jeip_latest_sub)
-    content = replace_marker(content, "JEIP_TABLE", jeip_table_html)
+    content = replace_marker(content, "JEIP_PRICE", jeip_price_str)
+    content = replace_marker(content, "JEIP_HISTORY", jeip_history_html)
 
     # Update JEQP
     jeqp_yield_str = f"~{jeqp['yield_pct']:.1f}%"
-    jeqp_latest_amt = f"{jeqp['latest']['amount']:.2f} <span style=\"font-size:0.8rem;font-weight:600;\">p</span>"
+    jeqp_latest_amt = f"{jeqp['latest']['amount']:.2f} <span class=\"metric-unit\">p</span>"
     jeqp_latest_sub = f"{jeqp['latest']['month_str']} 派息"
-    jeqp_table_html = build_table_rows(jeqp["history"], unit="p")
+    jeqp_price_str = f"{jeqp['price']:.2f} {jeqp['currency']}"
+    jeqp_history_html = build_history_items(jeqp["history"], unit="p")
 
     content = replace_marker(content, "JEQP_YIELD", jeqp_yield_str)
     content = replace_marker(content, "JEQP_LATEST", jeqp_latest_amt)
     content = replace_marker(content, "JEQP_LATEST_SUB", jeqp_latest_sub)
-    content = replace_marker(content, "JEQP_TABLE", jeqp_table_html)
+    content = replace_marker(content, "JEQP_PRICE", jeqp_price_str)
+    content = replace_marker(content, "JEQP_HISTORY", jeqp_history_html)
+
+    # Calculate Portfolio Combined Yield (70% JEIP + 30% JEQP)
+    portfolio_yield = (0.70 * jeip["yield_pct"]) + (0.30 * jeqp["yield_pct"])
+    portfolio_yield_str = f"~{portfolio_yield:.1f}%"
+    content = replace_marker(content, "PORTFOLIO_YIELD", portfolio_yield_str)
 
     # Update timestamp
     now_date = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")

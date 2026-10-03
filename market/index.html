@@ -4,27 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JEIP &amp; JEQP Dividend Monitor</title>
-    <meta name="description" content="JPMorgan JEIP &amp; JEQP UCITS ETF 实时股息与派息监控大屏。">
+    <title>Personal Dividend Portfolio</title>
+    <meta name="description" content="个人高息投资组合 (JEIP 70% + JEQP 30%) 实时股息率与月度分红监控速查卡。">
     <style>
         :root {
-            --bg-color: #f3f4f6;
+            --bg-color: #f8fafc;
             --card-bg: #ffffff;
-            --text-main: #111827;
-            --text-sub: #4b5563;
-            --text-muted: #9ca3af;
-            --border: #e5e7eb;
-            --border-highlight: #d1d5db;
-            --jeip-accent: #2563eb;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --text-muted: #94a3b8;
+            --border: #e2e8f0;
+            --border-highlight: #cbd5e1;
+
+            --jeip-accent: #1d4ed8;
             --jeip-light: #eff6ff;
-            --jeqp-accent: #7c3aed;
+            --jeip-border: #bfdbfe;
+
+            --jeqp-accent: #6d28d9;
             --jeqp-light: #f5f3ff;
+            --jeqp-border: #ddd6fe;
+
             --green: #10b981;
             --green-light: #ecfdf5;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
-            --radius-xl: 12px;
-            --radius-md: 8px;
-            --radius-sm: 5px;
+            --green-border: #a7f3d0;
+            --green-text: #065f46;
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+
+            --radius-2xl: 18px;
+            --radius-xl: 14px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
         }
 
         * {
@@ -34,59 +46,119 @@
         }
 
         html, body {
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            font-variant-numeric: tabular-nums;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-variant-numeric: tabular-nums;
-            -webkit-font-smoothing: antialiased;
             display: flex;
             flex-direction: column;
-            padding: 12px 16px;
+            padding: 16px;
         }
 
-        .dashboard-wrapper {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
+        .container {
             width: 100%;
-            max-width: 1920px;
+            max-width: 960px;
             margin: 0 auto;
-            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
-        /* 顶部紧凑标题栏 */
+        /* 顶部导航与状态栏 */
         header {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-shrink: 0;
-            padding-bottom: 8px;
-            margin-bottom: 8px;
+            flex-direction: column;
+            gap: 10px;
+            padding: 4px 2px 8px 2px;
             border-bottom: 1px solid var(--border);
         }
 
-        .header-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: var(--text-main);
+        @media (min-width: 640px) {
+            header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 12px;
+            }
+        }
+
+        .header-brand {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .back-link:hover {
+            background: #f1f5f9;
+            color: var(--text-main);
+            border-color: var(--border-highlight);
+        }
+
+        .title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .title-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .header-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .tag-private {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            background: #f1f5f9;
+            color: var(--text-sub);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            letter-spacing: 0.03em;
         }
 
         .header-meta {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            font-size: 0.78rem;
+            color: var(--text-sub);
+            background: #ffffff;
+            border: 1px solid var(--border);
+            padding: 5px 10px;
+            border-radius: 9999px;
+            width: fit-content;
         }
 
         .pulse-dot {
@@ -95,479 +167,783 @@
             background-color: var(--green);
             border-radius: 50%;
             display: inline-block;
-            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+            animation: pulse 2s infinite;
         }
 
-        /* 主监控双列网格 - 自动填充满屏高 */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            flex: 1;
-            min-height: 0;
-            height: 100%;
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.7;
+            }
         }
 
-        .fund-card {
-            background: var(--card-bg);
+        /* 综合投资组合股息率概览卡片 (Title 下方) */
+        .portfolio-summary-card {
+            background: #ffffff;
             border: 1px solid var(--border);
             border-radius: var(--radius-xl);
-            padding: 12px 14px;
+            padding: 16px 20px;
             box-shadow: var(--shadow-sm);
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            height: 100%;
-            min-height: 0;
+            gap: 14px;
         }
 
-        /* 基金标题区 */
-        .fund-header {
+        @media (min-width: 640px) {
+            .portfolio-summary-card {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 24px;
+            }
+        }
+
+        .summary-left {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .summary-caption {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .summary-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .calc-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            background: #f8fafc;
+            color: var(--text-sub);
+            border: 1px solid var(--border);
+            padding: 2px 7px;
+            border-radius: 9999px;
+        }
+
+        .summary-yield-row {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .summary-yield-value {
+            font-size: 2.3rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: #0f172a;
+            line-height: 1;
+            background: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .summary-yield-desc {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .summary-right {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .summary-right {
+                max-width: 380px;
+            }
+        }
+
+        /* 组合比例进度条 */
+        .alloc-bar-container {
+            width: 100%;
+            height: 9px;
+            background: #f1f5f9;
+            border-radius: 9999px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .alloc-bar-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        .jeip-fill {
+            background: var(--jeip-accent);
+        }
+
+        .jeqp-fill {
+            background: var(--jeqp-accent);
+        }
+
+        .alloc-legend {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            color: var(--text-sub);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot-jeip {
+            background: var(--jeip-accent);
+        }
+
+        .dot-jeqp {
+            background: var(--jeqp-accent);
+        }
+
+        .legend-ticker {
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .legend-weight {
+            font-weight: 700;
+        }
+
+        .legend-sub {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+        }
+
+        /* 核心卡片网格: 桌面双列，移动单列 */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        /* Score Card 基础设计 */
+        .score-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-2xl);
+            padding: 20px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .score-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* 顶部色彩标示条 */
+        .score-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 20px;
+            right: 20px;
+            height: 3px;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .score-card.jeip::before {
+            background: linear-gradient(90deg, var(--jeip-accent), #60a5fa);
+        }
+
+        .score-card.jeqp::before {
+            background: linear-gradient(90deg, var(--jeqp-accent), #a78bfa);
+        }
+
+        /* 卡片头部 */
+        .card-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            flex-shrink: 0;
+            align-items: flex-start;
+            gap: 10px;
         }
 
-        .title-area {
+        .ticker-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .ticker-row {
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
         .ticker {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             font-weight: 800;
-            letter-spacing: -0.01em;
+            line-height: 1;
+            letter-spacing: -0.02em;
         }
 
-        .badge-jeip {
+        .badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: var(--radius-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .badge-weight {
+            background: #f1f5f9;
+            color: var(--text-sub);
+            border: 1px solid var(--border);
+        }
+
+        .jeip .badge {
             background: var(--jeip-light);
             color: var(--jeip-accent);
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 2px 7px;
-            border-radius: var(--radius-sm);
-            border: 1px solid rgba(37, 99, 235, 0.2);
+            border: 1px solid var(--jeip-border);
         }
 
-        .badge-jeqp {
+        .jeqp .badge {
             background: var(--jeqp-light);
             color: var(--jeqp-accent);
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 2px 7px;
-            border-radius: var(--radius-sm);
-            border: 1px solid rgba(124, 58, 237, 0.2);
+            border: 1px solid var(--jeqp-border);
         }
 
-        .fund-sub-label {
-            font-size: 0.8rem;
-            color: var(--text-sub);
+        .fund-desc {
+            font-size: 0.82rem;
             font-weight: 500;
+            color: var(--text-sub);
         }
 
-        .ext-links {
+        /* 核心大指标区 (Hero Metrics) */
+        .hero-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .metric-block {
+            padding: 14px 14px 12px 14px;
+            border-radius: var(--radius-xl);
             display: flex;
-            gap: 5px;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 96px;
         }
 
-        .mini-link {
-            text-decoration: none;
-            font-size: 0.72rem;
-            color: var(--text-sub);
-            background: var(--bg-color);
-            padding: 3px 6px;
-            border-radius: var(--radius-sm);
+        .jeip .metric-primary {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e0effe 100%);
+            border: 1px solid var(--jeip-border);
+        }
+
+        .jeqp .metric-primary {
+            background: linear-gradient(135deg, #faf5ff 0%, #ede9fe 100%);
+            border: 1px solid var(--jeqp-border);
+        }
+
+        .metric-secondary {
+            background: #f8fafc;
             border: 1px solid var(--border);
-            font-weight: 500;
-            transition: all 0.15s;
         }
 
-        .mini-link:hover {
+        .metric-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: var(--text-sub);
+        }
+
+        .metric-value {
+            font-size: 1.65rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin: 4px 0 2px 0;
+        }
+
+        .jeip .metric-primary .metric-value {
+            color: var(--jeip-accent);
+        }
+
+        .jeqp .metric-primary .metric-value {
+            color: var(--jeqp-accent);
+        }
+
+        .metric-secondary .metric-value {
             color: var(--text-main);
-            border-color: var(--border-highlight);
-            background: #e5e7eb;
         }
 
-        /* 核心股息大指标 (3 列) */
-        .kpi-row {
+        .metric-unit {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 2px;
+        }
+
+        .metric-footnote {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* 辅助信息栏 */
+        .info-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
-            flex-shrink: 0;
-        }
-
-        .kpi-box {
-            background: #fafafa;
+            background: #f8fafc;
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
-            padding: 6px 10px;
+            padding: 10px 12px;
         }
 
-        .kpi-box.highlight-jeip {
-            background: #f8faff;
-            border-color: #dbeafe;
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
         }
 
-        .kpi-box.highlight-jeqp {
-            background: #fbf9ff;
-            border-color: #ede9fe;
-        }
-
-        .kpi-label {
+        .info-label {
             font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
             color: var(--text-muted);
             font-weight: 600;
         }
 
-        .kpi-value {
-            font-size: 1.25rem;
-            font-weight: 800;
+        .info-val {
+            font-size: 0.88rem;
+            font-weight: 700;
             color: var(--text-main);
-            letter-spacing: -0.02em;
-            line-height: 1.2;
         }
 
-        .kpi-box.highlight-jeip .kpi-value {
-            color: var(--jeip-accent);
+        /* 过去 3 个月派息历史明细栏 */
+        .history-box {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 10px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
         }
 
-        .kpi-box.highlight-jeqp .kpi-value {
-            color: var(--jeqp-accent);
-        }
-
-        .kpi-sub {
-            font-size: 0.7rem;
-            color: var(--text-sub);
-        }
-
-        /* 派息日程栏 */
-        .schedule-bar {
+        .history-head {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: var(--green-light);
-            border: 1px solid #a7f3d0;
-            border-radius: var(--radius-md);
-            padding: 5px 10px;
-            font-size: 0.78rem;
-            color: #065f46;
-            flex-shrink: 0;
-        }
-
-        .schedule-title {
+            font-size: 0.72rem;
             font-weight: 700;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #edf2f7;
         }
 
-        .schedule-dates {
-            font-weight: 600;
+        .history-head-sub {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: none;
         }
 
-        /* 历史分红记录紧凑表 (展示近 4 期) */
-        .history-section {
+        .history-list {
             display: flex;
             flex-direction: column;
             gap: 4px;
-            flex-shrink: 0;
         }
 
-        .section-header {
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            color: var(--text-sub);
+        .history-item {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+            border-bottom: 1px dashed #edf2f7;
         }
 
-        .payout-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.76rem;
+        .history-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
-        .payout-table th {
-            text-align: left;
-            font-size: 0.68rem;
-            color: var(--text-muted);
-            padding: 3px 6px;
-            border-bottom: 1px solid var(--border);
-            font-weight: 600;
-            text-transform: uppercase;
+        .history-meta-col {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
-        .payout-table td {
-            padding: 3px 6px;
-            border-bottom: 1px solid #f3f4f6;
+        .history-month {
+            font-size: 0.8rem;
+            font-weight: 700;
             color: var(--text-main);
         }
 
-        .amount-col {
-            font-weight: 700;
+        .history-dates {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .history-amount {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--text-main);
             text-align: right;
         }
 
-        .payout-table th:last-child {
-            text-align: right;
+        .jeip .history-amount {
+            color: var(--jeip-accent);
         }
 
-        /* TradingView 图表容器 - 铺满剩余垂直空间 */
-        .chart-box {
-            flex: 1;
-            min-height: 0;
-            width: 100%;
+        .jeqp .history-amount {
+            color: var(--jeqp-accent);
+        }
+
+        /* 除息规律提示条 */
+        .rule-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--green-light);
+            border: 1px solid var(--green-border);
             border-radius: var(--radius-md);
-            overflow: hidden;
-            border: 1px solid var(--border);
-            background: #ffffff;
+            padding: 9px 12px;
+            font-size: 0.78rem;
+            color: var(--green-text);
+            line-height: 1.35;
         }
 
-        .tradingview-widget-container {
-            height: 100%;
-            width: 100%;
+        .rule-icon {
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .rule-text {
+            font-weight: 600;
+        }
+
+        /* 底部链接操作条 */
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            padding-top: 4px;
+            border-top: 1px solid var(--border);
+        }
+
+        .action-link {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 10px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-sub);
+            text-decoration: none;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            transition: all 0.15s ease;
+            min-height: 38px;
+        }
+
+        .action-link:hover {
+            color: var(--text-main);
+            border-color: var(--border-highlight);
+            background: #f1f5f9;
+        }
+
+        .action-link:active {
+            transform: scale(0.98);
+        }
+
+        /* 页脚简要说明 */
+        footer {
+            margin-top: 8px;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            padding: 12px 4px;
+        }
+
+        footer a {
+            color: var(--text-sub);
+            text-decoration: underline;
+            text-underline-offset: 2px;
         }
     </style>
 </head>
 
 <body>
-    <div class="dashboard-wrapper">
+    <div class="container">
+        <!-- 紧凑响应式页眉 -->
         <header>
-            <div class="header-title">
-                <span>JEIP &amp; JEQP Dividend Monitor</span>
+            <div class="header-brand">
+                <a href="../" class="back-link" title="返回主页" aria-label="返回主页">←</a>
+                <div class="title-group">
+                    <div class="title-row">
+                        <h1 class="header-title">Personal Dividend Portfolio</h1>
+                        <span class="tag-private">私人投资组合</span>
+                    </div>
+                </div>
             </div>
             <div class="header-meta">
                 <span class="pulse-dot"></span>
-                <span>LSE UCITS &middot; Monthly Distribution</span>
+                <span><!-- LAST_UPDATED -->Updated: 2026-10-03<!-- /LAST_UPDATED --></span>
             </div>
         </header>
 
-        <main class="dashboard-grid">
-            <!-- JEIP 监控卡片 -->
-            <article class="fund-card" id="jeip">
-                <div class="fund-header">
-                    <div class="title-area">
-                        <span class="ticker">JEIP</span>
-                        <span class="badge-jeip">LSE &middot; GBX</span>
-                        <span class="fund-sub-label">S&amp;P 500 Covered Call</span>
+        <!-- Title 下方：综合预估年化股息率概览 (JEIP 70% + JEQP 30%) -->
+        <section class="portfolio-summary-card">
+            <div class="summary-left">
+                <div class="summary-caption">
+                    <span class="summary-label">综合预估年化股息率</span>
+                    <span class="calc-badge">70% JEIP + 30% JEQP</span>
+                </div>
+                <div class="summary-yield-row">
+                    <div class="summary-yield-value"><!-- PORTFOLIO_YIELD -->~8.3%<!-- /PORTFOLIO_YIELD --></div>
+                    <span class="summary-yield-desc">TTM 动态加权折算</span>
+                </div>
+            </div>
+
+            <div class="summary-right">
+                <div class="alloc-bar-container" title="JEIP 70% | JEQP 30%">
+                    <div class="alloc-bar-fill jeip-fill" style="width: 70%;"></div>
+                    <div class="alloc-bar-fill jeqp-fill" style="width: 30%;"></div>
+                </div>
+                <div class="alloc-legend">
+                    <div class="legend-item">
+                        <span class="legend-dot dot-jeip"></span>
+                        <span class="legend-ticker">JEIP</span>
+                        <span class="legend-weight">70%</span>
+                        <span class="legend-sub">(标普500)</span>
                     </div>
-                    <div class="ext-links">
-                        <a href="https://am.jpmorgan.com/gb/en/asset-management/per/products/jpm-us-equity-premium-income-active-ucits-etf-usd-dist-ie000u5mjoz6" target="_blank" rel="noopener noreferrer" class="mini-link">JPM 官网</a>
-                        <a href="https://www.justetf.com/en/etf-profile.html?isin=IE000U5MJOZ6#dividends" target="_blank" rel="noopener noreferrer" class="mini-link">JustETF</a>
-                        <a href="https://www.londonstockexchange.com/stock/JEIP/jpmorgan-etf-icav/company-page" target="_blank" rel="noopener noreferrer" class="mini-link">LSE</a>
+                    <div class="legend-item">
+                        <span class="legend-dot dot-jeqp"></span>
+                        <span class="legend-ticker">JEQP</span>
+                        <span class="legend-weight">30%</span>
+                        <span class="legend-sub">(纳指100)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 只有两个 Score Card -->
+        <main class="cards-grid">
+            <!-- Card 1: JEIP -->
+            <article class="score-card jeip" id="card-jeip">
+                <div class="card-header">
+                    <div class="ticker-group">
+                        <div class="ticker-row">
+                            <span class="ticker">JEIP</span>
+                            <span class="badge">LSE · GBX</span>
+                            <span class="badge badge-weight">权重 70%</span>
+                        </div>
+                        <div class="fund-desc">S&amp;P 500 Covered Call (UCITS)</div>
                     </div>
                 </div>
 
-                <!-- 核心指标 -->
-                <div class="kpi-row">
-                    <div class="kpi-box highlight-jeip">
-                        <div class="kpi-label">预估年化股息率</div>
-                        <div class="kpi-value"><!-- JEIP_YIELD -->~7.5%<!-- /JEIP_YIELD --></div>
-                        <div class="kpi-sub">TER: 0.35%</div>
+                <!-- 核心双指标 -->
+                <div class="hero-metrics">
+                    <div class="metric-block metric-primary">
+                        <span class="metric-label">预估年化股息率</span>
+                        <div class="metric-value"><!-- JEIP_YIELD -->~7.4%<!-- /JEIP_YIELD --></div>
+                        <span class="metric-footnote">TTM 动态折算</span>
                     </div>
-                    <div class="kpi-box">
-                        <div class="kpi-label">最新单期派息</div>
-                        <div class="kpi-value"><!-- JEIP_LATEST -->7.43 <span style="font-size:0.8rem;font-weight:600;">p</span><!-- /JEIP_LATEST --></div>
-                        <div class="kpi-sub"><!-- JEIP_LATEST_SUB -->Sep 2026 派息<!-- /JEIP_LATEST_SUB --></div>
-                    </div>
-                    <div class="kpi-box">
-                        <div class="kpi-label">派息频次</div>
-                        <div class="kpi-value" style="font-size: 1.05rem; padding-top: 2px;">每月 (12次/年)</div>
-                        <div class="kpi-sub">月中发放</div>
+                    <div class="metric-block metric-secondary">
+                        <span class="metric-label">最新单期派息</span>
+                        <div class="metric-value"><!-- JEIP_LATEST -->7.43 <span class="metric-unit">p</span><!-- /JEIP_LATEST --></div>
+                        <span class="metric-footnote"><!-- JEIP_LATEST_SUB -->Sep 2026 派息<!-- /JEIP_LATEST_SUB --></span>
                     </div>
                 </div>
 
-                <!-- 派息日程栏 -->
-                <div class="schedule-bar">
-                    <span class="schedule-title">🗓️ 除息规律</span>
-                    <span class="schedule-dates">每月第 2 个周四除息 &rarr; 次月中旬付款到账</span>
+                <!-- 辅助信息栏 -->
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">最新市价</span>
+                        <span class="info-val"><!-- JEIP_PRICE -->1836.40 GBp<!-- /JEIP_PRICE --></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">管理费率</span>
+                        <span class="info-val">TER 0.35%</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">分红频次</span>
+                        <span class="info-val">每月 (12次/年)</span>
+                    </div>
                 </div>
 
-                <!-- 历史派息明细 -->
-                <div class="history-section">
-                    <div class="section-header">
-                        <span>近期月度分红记录 (GBp)</span>
-                        <span style="font-size:0.7rem; color:var(--text-muted);">2026 Payouts</span>
+                <!-- 过去 3 个月派息历史 -->
+                <div class="history-box">
+                    <div class="history-head">
+                        <span>过去 3 个月派息明细</span>
+                        <span class="history-head-sub">近 3 期记录 (GBp)</span>
                     </div>
-                    <table class="payout-table">
-                        <thead>
-                            <tr>
-                                <th>除息日 (Ex-Date)</th>
-                                <th>派息到账日 (Pay Date)</th>
-                                <th class="amount-col">每股派息</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-<!-- JEIP_TABLE -->                            <tr>
-                                <td>2026-09-10</td>
-                                <td>2026-10-07</td>
-                                <td class="amount-col">7.43 p</td>
-                            </tr>
-                            <tr>
-                                <td>2026-08-13</td>
-                                <td>2026-09-09</td>
-                                <td class="amount-col">13.90 p</td>
-                            </tr>
-                            <tr>
-                                <td>2026-07-09</td>
-                                <td>2026-08-05</td>
-                                <td class="amount-col">10.78 p</td>
-                            </tr>
-                            <tr>
-                                <td>2026-06-11</td>
-                                <td>2026-07-08</td>
-                                <td class="amount-col">13.69 p</td>
-                            </tr><!-- /JEIP_TABLE -->
-                        </tbody>
-                    </table>
+                    <div class="history-list">
+<!-- JEIP_HISTORY -->                        <div class="history-item">
+                            <div class="history-meta-col">
+                                <span class="history-month">Sep 2026</span>
+                                <span class="history-dates">除息 2026-09-10 &middot; 到账 2026-10-07</span>
+                            </div>
+                            <span class="history-amount">7.43 p</span>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-meta-col">
+                                <span class="history-month">Aug 2026</span>
+                                <span class="history-dates">除息 2026-08-13 &middot; 到账 2026-09-09</span>
+                            </div>
+                            <span class="history-amount">13.90 p</span>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-meta-col">
+                                <span class="history-month">Jul 2026</span>
+                                <span class="history-dates">除息 2026-07-09 &middot; 到账 2026-08-05</span>
+                            </div>
+                            <span class="history-amount">10.78 p</span>
+                        </div><!-- /JEIP_HISTORY -->
+                    </div>
                 </div>
 
-                <!-- TradingView Widget: 自动填满剩余空间 -->
-                <div class="chart-box">
-                    <div class="tradingview-widget-container" style="height:100%;width:100%">
-                        <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
-                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/LSE-JEIP/" rel="noopener nofollow" target="_blank"><span class="blue-text">LSE:JEIP &middot; JEPI Benchmark on TradingView</span></a></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                        {
-                            "allow_symbol_change": false,
-                            "calendar": false,
-                            "details": false,
-                            "hide_side_toolbar": true,
-                            "hide_top_toolbar": false,
-                            "hide_legend": false,
-                            "hide_volume": false,
-                            "hotlist": false,
-                            "interval": "D",
-                            "locale": "en",
-                            "save_image": false,
-                            "style": "1",
-                            "symbol": "AMEX:JEPI",
-                            "theme": "light",
-                            "timezone": "Europe/London",
-                            "backgroundColor": "#ffffff",
-                            "gridColor": "rgba(46, 46, 46, 0.05)",
-                            "withdateranges": true,
-                            "autosize": true
-                        }
-                        </script>
-                    </div>
+                <!-- 除息规律提示 -->
+                <div class="rule-bar">
+                    <span class="rule-icon">🗓️</span>
+                    <span class="rule-text">除息规律：每月第 2 个周四除息 → 次月中旬派息付款到账</span>
+                </div>
+
+                <!-- 官方外部链接快捷入口 -->
+                <div class="card-actions">
+                    <a href="https://am.jpmorgan.com/gb/en/asset-management/per/products/jpm-us-equity-premium-income-active-ucits-etf-usd-dist-ie000u5mjoz6" target="_blank" rel="noopener noreferrer" class="action-link">JPM 官网</a>
+                    <a href="https://www.justetf.com/en/etf-profile.html?isin=IE000U5MJOZ6#dividends" target="_blank" rel="noopener noreferrer" class="action-link">JustETF</a>
+                    <a href="https://www.londonstockexchange.com/stock/JEIP/jpmorgan-etf-icav/company-page" target="_blank" rel="noopener noreferrer" class="action-link">LSE 行情</a>
                 </div>
             </article>
 
-            <!-- JEQP 监控卡片 -->
-            <article class="fund-card" id="jeqp">
-                <div class="fund-header">
-                    <div class="title-area">
-                        <span class="ticker">JEQP</span>
-                        <span class="badge-jeqp">LSE &middot; GBX</span>
-                        <span class="fund-sub-label">Nasdaq-100 Covered Call</span>
-                    </div>
-                    <div class="ext-links">
-                        <a href="https://am.jpmorgan.com/gb/en/asset-management/per/products/jpm-nasdaq-equity-premium-income-active-ucits-etf-usd-dist-ie000u9j8hx9" target="_blank" rel="noopener noreferrer" class="mini-link">JPM 官网</a>
-                        <a href="https://www.justetf.com/en/etf-profile.html?isin=IE000U9J8HX9#dividends" target="_blank" rel="noopener noreferrer" class="mini-link">JustETF</a>
-                        <a href="https://www.londonstockexchange.com/stock/JEQP/jpmorgan-etf-icav/company-page" target="_blank" rel="noopener noreferrer" class="mini-link">LSE</a>
+            <!-- Card 2: JEQP -->
+            <article class="score-card jeqp" id="card-jeqp">
+                <div class="card-header">
+                    <div class="ticker-group">
+                        <div class="ticker-row">
+                            <span class="ticker">JEQP</span>
+                            <span class="badge">LSE · GBX</span>
+                            <span class="badge badge-weight">权重 30%</span>
+                        </div>
+                        <div class="fund-desc">Nasdaq-100 Covered Call (UCITS)</div>
                     </div>
                 </div>
 
-                <!-- 核心指标 -->
-                <div class="kpi-row">
-                    <div class="kpi-box highlight-jeqp">
-                        <div class="kpi-label">预估年化股息率</div>
-                        <div class="kpi-value"><!-- JEQP_YIELD -->~10.7%<!-- /JEQP_YIELD --></div>
-                        <div class="kpi-sub">TER: 0.35%</div>
+                <!-- 核心双指标 -->
+                <div class="hero-metrics">
+                    <div class="metric-block metric-primary">
+                        <span class="metric-label">预估年化股息率</span>
+                        <div class="metric-value"><!-- JEQP_YIELD -->~10.3%<!-- /JEQP_YIELD --></div>
+                        <span class="metric-footnote">TTM 动态折算</span>
                     </div>
-                    <div class="kpi-box">
-                        <div class="kpi-label">最新单期派息</div>
-                        <div class="kpi-value"><!-- JEQP_LATEST -->19.42 <span style="font-size:0.8rem;font-weight:600;">p</span><!-- /JEQP_LATEST --></div>
-                        <div class="kpi-sub"><!-- JEQP_LATEST_SUB -->Sep 2026 派息<!-- /JEQP_LATEST_SUB --></div>
-                    </div>
-                    <div class="kpi-box">
-                        <div class="kpi-label">派息频次</div>
-                        <div class="kpi-value" style="font-size: 1.05rem; padding-top: 2px;">每月 (12次/年)</div>
-                        <div class="kpi-sub">月中发放</div>
+                    <div class="metric-block metric-secondary">
+                        <span class="metric-label">最新单期派息</span>
+                        <div class="metric-value"><!-- JEQP_LATEST -->19.42 <span class="metric-unit">p</span><!-- /JEQP_LATEST --></div>
+                        <span class="metric-footnote"><!-- JEQP_LATEST_SUB -->Sep 2026 派息<!-- /JEQP_LATEST_SUB --></span>
                     </div>
                 </div>
 
-                <!-- 派息日程栏 -->
-                <div class="schedule-bar">
-                    <span class="schedule-title">🗓️ 除息规律</span>
-                    <span class="schedule-dates">每月第 2 个周四除息 &rarr; 次月中旬付款到账</span>
+                <!-- 辅助信息栏 -->
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">最新市价</span>
+                        <span class="info-val"><!-- JEQP_PRICE -->2111.75 GBp<!-- /JEQP_PRICE --></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">管理费率</span>
+                        <span class="info-val">TER 0.35%</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">分红频次</span>
+                        <span class="info-val">每月 (12次/年)</span>
+                    </div>
                 </div>
 
-                <!-- 历史派息明细 -->
-                <div class="history-section">
-                    <div class="section-header">
-                        <span>近期月度分红记录 (GBp)</span>
-                        <span style="font-size:0.7rem; color:var(--text-muted);">2026 Payouts</span>
+                <!-- 过去 3 个月派息历史 -->
+                <div class="history-box">
+                    <div class="history-head">
+                        <span>过去 3 个月派息明细</span>
+                        <span class="history-head-sub">近 3 期记录 (GBp)</span>
                     </div>
-                    <table class="payout-table">
-                        <thead>
-                            <tr>
-                                <th>除息日 (Ex-Date)</th>
-                                <th>派息到账日 (Pay Date)</th>
-                                <th class="amount-col">每股派息</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-<!-- JEQP_TABLE -->                            <tr>
-                                <td>2026-09-10</td>
-                                <td>2026-10-07</td>
-                                <td class="amount-col">19.42 p</td>
-                            </tr>
-                            <tr>
-                                <td>2026-08-13</td>
-                                <td>2026-09-09</td>
-                                <td class="amount-col">25.37 p</td>
-                            </tr>
-                            <tr>
-                                <td>2026-07-09</td>
-                                <td>2026-08-05</td>
-                                <td class="amount-col">18.84 p</td>
-                            </tr>
-                            <tr>
-                                <td>2026-06-11</td>
-                                <td>2026-07-08</td>
-                                <td class="amount-col">18.89 p</td>
-                            </tr><!-- /JEQP_TABLE -->
-                        </tbody>
-                    </table>
+                    <div class="history-list">
+<!-- JEQP_HISTORY -->                        <div class="history-item">
+                            <div class="history-meta-col">
+                                <span class="history-month">Sep 2026</span>
+                                <span class="history-dates">除息 2026-09-10 &middot; 到账 2026-10-07</span>
+                            </div>
+                            <span class="history-amount">19.42 p</span>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-meta-col">
+                                <span class="history-month">Aug 2026</span>
+                                <span class="history-dates">除息 2026-08-13 &middot; 到账 2026-09-09</span>
+                            </div>
+                            <span class="history-amount">25.37 p</span>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-meta-col">
+                                <span class="history-month">Jul 2026</span>
+                                <span class="history-dates">除息 2026-07-09 &middot; 到账 2026-08-05</span>
+                            </div>
+                            <span class="history-amount">18.84 p</span>
+                        </div><!-- /JEQP_HISTORY -->
+                    </div>
                 </div>
 
-                <!-- TradingView Widget: 自动填满剩余空间 -->
-                <div class="chart-box">
-                    <div class="tradingview-widget-container" style="height:100%;width:100%">
-                        <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
-                        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/LSE-JEQP/" rel="noopener nofollow" target="_blank"><span class="blue-text">LSE:JEQP &middot; JEPQ Benchmark on TradingView</span></a></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                        {
-                            "allow_symbol_change": false,
-                            "calendar": false,
-                            "details": false,
-                            "hide_side_toolbar": true,
-                            "hide_top_toolbar": false,
-                            "hide_legend": false,
-                            "hide_volume": false,
-                            "hotlist": false,
-                            "interval": "D",
-                            "locale": "en",
-                            "save_image": false,
-                            "style": "1",
-                            "symbol": "NASDAQ:JEPQ",
-                            "theme": "light",
-                            "timezone": "Europe/London",
-                            "backgroundColor": "#ffffff",
-                            "gridColor": "rgba(46, 46, 46, 0.05)",
-                            "withdateranges": true,
-                            "autosize": true
-                        }
-                        </script>
-                    </div>
+                <!-- 除息规律提示 -->
+                <div class="rule-bar">
+                    <span class="rule-icon">🗓️</span>
+                    <span class="rule-text">除息规律：每月第 2 个周四除息 → 次月中旬派息付款到账</span>
+                </div>
+
+                <!-- 官方外部链接快捷入口 -->
+                <div class="card-actions">
+                    <a href="https://am.jpmorgan.com/gb/en/asset-management/per/products/jpm-nasdaq-equity-premium-income-active-ucits-etf-usd-dist-ie000u9j8hx9" target="_blank" rel="noopener noreferrer" class="action-link">JPM 官网</a>
+                    <a href="https://www.justetf.com/en/etf-profile.html?isin=IE000U9J8HX9#dividends" target="_blank" rel="noopener noreferrer" class="action-link">JustETF</a>
+                    <a href="https://www.londonstockexchange.com/stock/JEQP/jpmorgan-etf-icav/company-page" target="_blank" rel="noopener noreferrer" class="action-link">LSE 行情</a>
                 </div>
             </article>
         </main>
+
+        <footer>
+            <span>数据源：Yahoo Finance / 伦敦证券交易所 (LSE) · 每日由 GitHub Actions 自动更新</span>
+        </footer>
     </div>
 </body>
 
