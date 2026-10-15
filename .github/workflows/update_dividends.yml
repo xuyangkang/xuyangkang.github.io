@@ -2,8 +2,8 @@ name: Update JEIP & JEQP Dividends
 
 on:
   schedule:
-    # Run every Friday at 08:00 UTC (captures monthly Thursday ex-dividend announcements)
-    - cron: '0 8 * * 5'
+    # Run daily at 08:00 UTC (syncs daily prices and captures monthly dividend distributions)
+    - cron: '0 8 * * *'
   workflow_dispatch: # Allows manual trigger from GitHub Actions tab
 
 permissions:
