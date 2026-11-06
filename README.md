@@ -14,6 +14,7 @@ Personal website and developer playground of **Xuyang Kang**, hosted on GitHub P
   - `/resume`: Fast redirect to [resume.pdf](resume.pdf).
   - `/market`: "炼金控制台" (Multi-asset financial monitor with TradingView widgets).
   - `/py`: Client-side Python REPL powered by Brython.
+  - `/kt`: Client-side Kotlin REPL powered by Kotlin Playground.
 
 ---
 

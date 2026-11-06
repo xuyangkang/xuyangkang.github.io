@@ -40,6 +40,8 @@ This document serves as the single source of truth for AI agents (and human cont
 │   └── index.html      # Convict Conditioning Six Arts Tracker (囚徒健身六艺十式个人级别追踪)
 ├── py/
 │   └── index.html      # In-browser Python REPL running on Brython
+├── kt/
+│   └── index.html      # In-browser Kotlin REPL running on Kotlin Playground
 └── *.svg, *.png, *.jpg # Asset logos (Google, DoorDash, Edinburgh, York, Nankai, QR code, etc.)
 ```
 
@@ -61,6 +63,7 @@ This document serves as the single source of truth for AI agents (and human cont
    - `/market`: JEIP & JEQP Dividend Monitor (clean sans-serif dashboard, high-density monthly distribution tracker and TradingView widgets).
    - `/gym`: Convict Conditioning Six Arts Tracker (mobile-first calisthenics progression dashboard with sticky tab nav).
    - `/py`: Client-side Python REPL powered by Brython.
+   - `/kt`: Client-side Kotlin REPL powered by Kotlin Playground.
    - `/resume` & `/resume.html`: Dual redirection handlers pointing directly to `/resume.pdf`.
 
 ---
