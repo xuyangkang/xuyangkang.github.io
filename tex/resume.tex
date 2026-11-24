@@ -40,7 +40,7 @@ Senior Tech Lead with 10+ years of experience in hyperscale backend, distributed
 \entry{Google}{London, UK}{Senior Software Engineer, SRE}{2026 -- Present}
 \begin{itemize}[noitemsep, leftmargin=*]
     \item Lead site reliability initiatives for Google's Agentic AI platform, ensuring operational readiness and high availability for enterprise AI workloads.
-    \item Architected and executed comprehensive blackbox testing frameworks (load tests, active synthetic probers) covering \textbf{XX} Critical User Journeys (CUJs) across Gemini Enterprise and the agentic AI runtime, validating system resiliency to support key launch milestones.
+    \item Architected and executed comprehensive blackbox testing frameworks (load tests, active synthetic probers) covering \textbf{XX} Critical User Journeys (CUJs) across Gemini Enterprise and the agentic AI runtime, validating system resiliency and planning capacity to support key launch milestones.
     \item Safeguarded high availability via 12-hour on-call rotation shifts, triaging real-time alerts and mitigating high-severity production incidents across Agentic AI services.
 \end{itemize}
 \vspace{3pt}
@@ -92,13 +92,15 @@ Senior Tech Lead with 10+ years of experience in hyperscale backend, distributed
 % --- Research & Projects ---
 \section{Research \& Academic Projects}
 
-\entry{MSc Dissertation: AI-Powered Scaling of ML Workflows}{University of Edinburgh}{Researcher}{2025 -- 2026}
+\parbox[t]{0.74\textwidth}{\raggedright\textbf{MSc Dissertation: From Prototyping to Production: An AI-Powered Approach to Scaling Jupyter Notebooks via Kubeflow Pipelines}\strut} \hfill University of Edinburgh \\
+\textit{Researcher} \hfill \textit{2025 -- 2026}
 \begin{itemize}[noitemsep, leftmargin=*]
-    \item Developed a framework to bridge the gap between interactive Jupyter Notebook prototyping and production-grade orchestration using \textbf{Kubeflow Pipelines}.
-    \item Leveraged \textbf{LLMs and Multi-agent patterns} to automate the transformation of monolithic notebooks into modular, scalable pipeline components, reducing manual productionization overhead.
-    \item Evaluated system performance and scalability on the \textbf{Edinburgh International Data Facility (EIDF)} HPC infrastructure to support large-scale data science tasks.
-    \item Integrated advanced prompt engineering to ensure code quality, reproducibility, and alignment with MLOps best practices.
+    \item Architected \textbf{nb2kf}, an autonomous multi-agent framework in \textbf{Go} and \textbf{Python} (\textbf{Google ADK}, \textbf{Gemini}) that compiles raw, unannotated Jupyter Notebooks into modular, hardware-aware \textbf{Kubeflow Pipelines (KFP v2)} DAGs on Kubernetes without manual cell annotation.
+    \item Designed a four-agent architecture (\textit{Resolver}, \textit{Converter}, \textit{Diagnostician}, \textit{Learner}) with a dual-loop feedback mechanism: an inner execution-harness loop for iterative self-correction via compiler and pod runtime tracebacks, and an outer learning loop that autonomously distilled \textbf{47 persistent rules} for cross-notebook transfer learning.
+    \item Achieved an \textbf{84\% autonomous conversion and cluster execution success rate} across a 100-notebook benchmark spanning \textbf{PyTorch, TensorFlow/Keras, Flax/JAX, and ONNX Runtime}; controlled ablation showed the inner refinement loop drove a \textbf{4.7$\times$ accuracy gain} (\textbf{19\% $\to$ 88\%}) over single-shot LLM generation.
+    \item Validated zero-code-change \textbf{GPU portability} across 5 hardware configurations (CPU, $1\times$/$2\times$ \textbf{NVIDIA L40}, and $1\times$/$2\times$ \textbf{NVIDIA A100} on the \textbf{Edinburgh International Data Facility (EIDF)}), achieving \textbf{90\% portability} and up to \textbf{14.7$\times$ speedup} over CPU baselines; accepted as a poster at \textbf{IEEE eScience 2026}.
 \end{itemize}
+\vspace{3pt}
 
 \entry{MSc Dissertation: Top K vector similarity search with filters}{University of York}{Research Engineer (Project Lead)}{2022}
 \begin{itemize}[noitemsep, leftmargin=*]
@@ -113,8 +115,9 @@ Senior Tech Lead with 10+ years of experience in hyperscale backend, distributed
 \section{Education}
 
 \textbf{University of Edinburgh} \hfill Graduated 2026 \\
-M.Sc. in High Performance Computing with Data Science \\
-\textit{Relevant Coursework:} Machine Learning at Scale, Accelerated Systems: Principles and Practice(GPU programming with CUDA, OpenMP and SYCL), Parallel Design Patterns, Message-Passing Programming (MPI), Threaded Programming (OpenMP), Performance Programming
+M.Sc. in High Performance Computing with Data Science (\textbf{Distinction}) \\
+\textit{Honors:} \textbf{Class Medal} (Ranked 1st in Cohort) \\
+\textit{Relevant Coursework:} Machine Learning at Scale, Accelerated Systems: Principles and Practice (GPU programming with CUDA, OpenMP and SYCL), Parallel Design Patterns, Message-Passing Programming (MPI), Threaded Programming (OpenMP), Performance Programming
 
 \vspace{2pt}
 \textbf{University of York} \hfill Graduated 2022 \\
