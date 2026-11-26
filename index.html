@@ -29,14 +29,89 @@
     <meta name="twitter:image" content="https://xuyang.me/og-image.png">
     <meta name="twitter:image:alt" content="Xuyang Kang — Senior SRE-SWE at Google (Agentic AI)">
 
+    <link rel="preload" href="Virgil.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "url": "https://xuyang.me/",
+        "name": "Xuyang Kang",
+        "mainEntity": {
+            "@type": "Person",
+            "@id": "https://xuyang.me/#person",
+            "name": "Xuyang Kang",
+            "url": "https://xuyang.me/",
+            "image": "https://xuyang.me/og-image.png",
+            "email": "mailto:xuyangkang@gmail.com",
+            "jobTitle": "Senior Software Engineer, Site Reliability Engineering",
+            "description": "Senior SRE-SWE at Google focusing on Agentic AI and Gemini Enterprise reliability, with experience across distributed systems, AI observability, and High Performance Computing.",
+            "workLocation": {
+                "@type": "Place",
+                "name": "London, UK"
+            },
+            "worksFor": {
+                "@type": "Organization",
+                "name": "Google",
+                "url": "https://about.google/"
+            },
+            "alumniOf": [
+                {
+                    "@type": "CollegeOrUniversity",
+                    "name": "University of Edinburgh",
+                    "url": "https://www.ed.ac.uk/"
+                },
+                {
+                    "@type": "CollegeOrUniversity",
+                    "name": "University of York",
+                    "url": "https://www.york.ac.uk/"
+                },
+                {
+                    "@type": "CollegeOrUniversity",
+                    "name": "Nankai University",
+                    "url": "https://en.nankai.edu.cn/"
+                }
+            ],
+            "award": "Class Medal (Ranked 1st in Cohort), MSc in High Performance Computing with Data Science, University of Edinburgh",
+            "knowsLanguage": ["en", "zh", "ja"],
+            "knowsAbout": [
+                "Site Reliability Engineering",
+                "Agentic AI",
+                "Distributed Systems",
+                "High Performance Computing",
+                "Kubeflow Pipelines",
+                "AI Observability",
+                "Vector Similarity Search"
+            ],
+            "sameAs": [
+                "https://github.com/xuyangkang"
+            ]
+        }
+    }
+    </script>
+
     <style>
         @font-face {
             font-family: 'Virgil';
             src: url('Virgil.woff2') format('woff2');
             font-weight: normal;
             font-style: normal;
+            font-display: swap;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            clip-path: inset(50%);
+            white-space: nowrap;
+            border: 0;
         }
 
         body {
@@ -199,7 +274,7 @@
     <header>
         <h1>Xuyang Kang</h1>
         <p><a href="mailto:xuyangkang@gmail.com">xuyangkang@gmail.com</a></p>
-        <img src="qr.svg" class="qr" alt="QR Code linking to xuyang.me">
+        <img src="qr.svg" class="qr" width="200" height="200" alt="QR Code linking to xuyang.me">
         <p>
             <a href="/resume" target="_blank" rel="noopener noreferrer">A formal and boring resume here</a>
         </p>
@@ -211,8 +286,8 @@
             <div class="container">
                 <div class="card">
                     <p class="icon-text">
-                        <img src="Google.svg" alt="Google">
-                        <span>Senior SRE-SWE, Agentic AI, 2026&ndash;present</span>
+                        <img src="Google.svg" width="60" height="60" alt="" aria-hidden="true">
+                        <span><span class="sr-only">Google: </span>Senior SRE-SWE, Agentic AI, 2026&ndash;present</span>
                     </p>
                     <p>
                         I keep Gemini Enterprise and Agentic Platform Runtime reliable
@@ -227,8 +302,8 @@
 
                 <div class="card">
                     <p class="icon-text">
-                        <img src="Google.svg" alt="Google">
-                        <span>Senior SRE-SWE, Ads, 2022&ndash;2026</span>
+                        <img src="Google.svg" width="60" height="60" alt="" aria-hidden="true">
+                        <span><span class="sr-only">Google: </span>Senior SRE-SWE, Ads, 2022&ndash;2026</span>
                     </p>
                     <p>
                         I build AI-driven observability for hundreds of microservices
@@ -243,8 +318,8 @@
 
                 <div class="card">
                     <p class="icon-text">
-                        <img src="Doordash.svg" alt="Doordash">
-                        <span>Senior SWE, 2021&ndash;2022</span>
+                        <img src="Doordash.svg" width="60" height="60" alt="" aria-hidden="true">
+                        <span><span class="sr-only">DoorDash: </span>Senior SWE, 2021&ndash;2022</span>
                     </p>
                     <p>
                         I brought <a
@@ -258,8 +333,8 @@
 
                 <div class="card">
                     <p class="icon-text">
-                        <img src="exa.png" alt="Exawizards">
-                        <span>Tech Lead, 2019&ndash;2021</span>
+                        <img src="exa.png" width="60" height="60" alt="" aria-hidden="true">
+                        <span><span class="sr-only">ExaWizards: </span>Tech Lead, 2019&ndash;2021</span>
                     </p>
                     <p>
                         I did everything to launch <a
@@ -273,8 +348,8 @@
 
                 <div class="card">
                     <p class="icon-text">
-                        <img src="indeed.png" alt="Indeed">
-                        <span>Software Engineer, 2017&ndash;2019</span>
+                        <img src="indeed.png" width="60" height="60" loading="lazy" decoding="async" alt="" aria-hidden="true">
+                        <span><span class="sr-only">Indeed: </span>Software Engineer, 2017&ndash;2019</span>
                     </p>
                     <p>
                         I maintained Indeed's private cloud infra
@@ -283,8 +358,8 @@
 
                 <div class="card">
                     <p class="icon-text">
-                        <img src="Google.svg" alt="Google">
-                        <span>Software Engineer, 2013&ndash;2017</span>
+                        <img src="Google.svg" width="60" height="60" loading="lazy" decoding="async" alt="" aria-hidden="true">
+                        <span><span class="sr-only">Google: </span>Software Engineer, 2013&ndash;2017</span>
                     </p>
                     <p>
                         I wrote backend and data pipeline code for cool projects: Street View, Android Studio, Google
@@ -299,20 +374,20 @@
             <div class="container">
                 <div class="card">
                     <p class="icon-text">
-                        <img src="ed.png" alt="University of Edinburgh">
-                        <span>MSc in HPC and DS</span>
+                        <img src="ed.png" width="60" height="60" loading="lazy" decoding="async" alt="" aria-hidden="true">
+                        <span><span class="sr-only">University of Edinburgh: </span>MSc in HPC and DS</span>
                     </p>
                 </div>
                 <div class="card">
                     <p class="icon-text">
-                        <img src="york.jpg" alt="University of York">
-                        <span>MSc in Computer Science</span>
+                        <img src="york.jpg" width="60" height="60" loading="lazy" decoding="async" alt="" aria-hidden="true">
+                        <span><span class="sr-only">University of York: </span>MSc in Computer Science</span>
                     </p>
                 </div>
                 <div class="card">
                     <p class="icon-text">
-                        <img src="nku.svg" alt="Nankai University">
-                        <span>BSc in Computer Science</span>
+                        <img src="nku.svg" width="60" height="60" loading="lazy" decoding="async" alt="" aria-hidden="true">
+                        <span><span class="sr-only">Nankai University: </span>BSc in Computer Science</span>
                     </p>
                 </div>
             </div>
@@ -320,7 +395,7 @@
 
         <section id="languages">
             <h2>Languages</h2>
-            <span class="emoji" role="img" aria-label="Languages"> &#x1F1EC;&#x1F1E7; &#x1F1E8;&#x1F1F3; &#x1F1EF;&#x1F1F5;
+            <span class="emoji" role="img" aria-label="Languages: English, Chinese, Japanese"> &#x1F1EC;&#x1F1E7; &#x1F1E8;&#x1F1F3; &#x1F1EF;&#x1F1F5;
             </span>
         </section>
 
