@@ -22,6 +22,10 @@ This document serves as the single source of truth for AI agents (and human cont
 ├── .gitignore          # Ignore rules for OS artifacts, editor configs, and temp files
 ├── CNAME               # Custom domain configuration (xuyang.me)
 ├── index.html          # Main homepage (profile, experience, education, booking)
+├── og-image.png        # 1200x630 OpenGraph / Twitter social preview card
+├── robots.txt          # Crawler directives (disallows /market/, /gym/, /py/, /tex/, /scripts/)
+├── sitemap.xml         # XML sitemap for canonical public URLs
+├── llms.txt            # Structured profile & research summary for AI search engines
 ├── Virgil.woff2        # Custom font providing the signature hand-drawn / sketch aesthetic
 ├── resume.pdf          # Latest PDF resume
 ├── resume.html         # HTTP-equiv & JS redirect to /resume.pdf
@@ -69,6 +73,7 @@ This document serves as the single source of truth for AI agents (and human cont
 
 ### 4.1. Inviolable Constraints
 - **Preserve `CNAME`**: Never delete or alter `CNAME` (`xuyang.me`). Removing it will break the custom domain mapping.
+- **Zero Visible Changes on Minimalist Homepage**: Do not alter the visual appearance, layout, typography, or minimalist card design of `index.html` unless explicitly requested by the owner (SEO/accessibility enhancements must stay under the hood via `<head>`, `JSON-LD`, or `.sr-only`).
 - **Maintain Direct Static Serving**: Keep asset paths relative and ensure directory indexes (`/resume/`, `/market/`, `/py/`) resolve correctly without requiring a custom routing server.
 - **Avoid Breaking Sub-tools**: Do not touch or modify the embedded scripts in `/market` or `/py` unless specifically requested.
 

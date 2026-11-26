@@ -1,0 +1,38 @@
+# Xuyang Kang
+
+> Senior Software Engineer, Site Reliability Engineering (SRE) at Google (London, UK), focusing on Agentic AI and Gemini Enterprise reliability. 10+ years of experience across hyperscale backend, distributed systems, ML/AI infrastructure, and High Performance Computing.
+
+## Canonical Links
+
+- Website: https://xuyang.me/
+- Resume (PDF): https://xuyang.me/resume.pdf
+- Email: mailto:xuyangkang@gmail.com
+- GitHub: https://github.com/xuyangkang
+- Virtual Coffee Chat: https://calendar.app.google/Qxk63uBCAb8F4Tg28
+
+## Experience
+
+- **Google** (London, UK) — Senior Software Engineer, SRE, Agentic AI (2026–Present): Reliability, blackbox testing frameworks (load tests, synthetic probers), capacity planning, and production incident response for Gemini Enterprise and Google's Agentic Platform Runtime.
+- **Google** (London, UK) — Senior Software Engineer, SRE, Tech Lead, Ads (2022–2026): Custom OLAP Critical User Journey (CUJ) observability across AdSense, AdMob, and Google Ads Manager; LLM-powered multi-agent onboarding automation; AI-driven alerting and Performance Max (PMax) reliability.
+- **DoorDash** (Japan) — Senior Software Engineer (2021–2022): Launched DashPass annual subscription and AfterPay partnership in Australia; store search and A/B testing frameworks in Japan.
+- **ExaWizards** (Japan) — Software Engineer, Tech Lead (2019–2021): Led CompanySearch AI-based company search engine from PoC to launch; hybrid high-dimensional vector similarity search scheduler across PostgreSQL and Elasticsearch.
+- **Indeed** (Japan) — Software Engineer (2017–2019): Private cloud infrastructure engineering and optimization.
+- **Google** (Beijing & Mountain View HQ) — Software Engineer (2013–2017): Backend and data pipelines for Street View, Android Studio, Google Play Music / YouTube Music, and Go (Golang).
+
+## Research & Academic Projects
+
+- **From Prototyping to Production: An AI-Powered Approach to Scaling Jupyter Notebooks via Kubeflow Pipelines (`nb2kf`)** — University of Edinburgh (2025–2026), accepted as a poster at **IEEE eScience 2026**: Autonomous multi-agent framework in Go and Python (Google ADK, Gemini) compiling unannotated Jupyter Notebooks into hardware-aware Kubeflow Pipelines (KFP v2) DAGs on Kubernetes, achieving 84% autonomous cluster execution success across 100 ML notebooks and 90% zero-code-change GPU portability on NVIDIA L40/A100 (EIDF).
+- **Top-K Vector Similarity Search with Filters** — University of York (2022): Benchmarked linear scan, Faiss, PostgreSQL, and Elasticsearch; designed an adaptive hybrid query scheduler validated via Multi-factor ANOVA.
+
+## Education & Honors
+
+- **University of Edinburgh** — MSc in High Performance Computing with Data Science (Distinction, **Class Medal** — Ranked 1st in Cohort)
+- **University of York** — MSc in Computer Science with Data Analytics
+- **Nankai University** — BSc in Computer Science
+- **Columbia Business School Executive Education** — Management Essentials
+
+## Technical Domains & Languages
+
+- **Core Areas**: Site Reliability Engineering (SRE), Agentic AI, Distributed Systems, High Performance Computing (MPI, OpenMP, CUDA, SYCL), MLOps & Kubeflow Pipelines, Vector Similarity Search, High-Scale Observability.
+- **Programming**: Go (Golang), Python, Java, Scala, C/C++, SQL, TypeScript.
+- **Spoken Languages**: English, Chinese, Japanese.
