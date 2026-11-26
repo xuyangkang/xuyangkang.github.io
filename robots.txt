@@ -5,3 +5,5 @@ Disallow: /gym/
 Disallow: /py/
 Disallow: /tex/
 Disallow: /scripts/
+
+Sitemap: https://xuyang.me/sitemap.xml
