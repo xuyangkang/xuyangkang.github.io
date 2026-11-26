@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /market/
+Disallow: /gym/
+Disallow: /py/
+Disallow: /tex/
+Disallow: /scripts/
